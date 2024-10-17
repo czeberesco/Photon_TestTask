@@ -1,4 +1,5 @@
-﻿using Fusion;
+﻿using Core.Interfaces;
+using Fusion;
 using UnityEngine;
 using Zenject;
 
@@ -8,7 +9,8 @@ namespace Core.Installers
 	{
 		#region SerializeFields
 
-		[SerializeField] private NetworkRunner m_networkRunner;
+		[SerializeField] private NetworkRunnerProvider m_networkRunnerProvider;
+		[SerializeField] private NetworkSceneManagerDefault m_networkSceneManager;
 
 		#endregion
 
@@ -16,7 +18,9 @@ namespace Core.Installers
 
 		public override void InstallBindings()
 		{
-			Container.Bind<NetworkRunner>().FromInstance(m_networkRunner).AsSingle();
+			Container.Bind<INetworkRunnerProvider>().FromInstance(m_networkRunnerProvider).AsSingle();
+			Container.Bind<INetworkSceneManager>().FromInstance(m_networkSceneManager).AsSingle();
+			Container.BindInterfacesAndSelfTo<ConnectionHandler>().AsSingle().NonLazy();
 		}
 
 		#endregion
