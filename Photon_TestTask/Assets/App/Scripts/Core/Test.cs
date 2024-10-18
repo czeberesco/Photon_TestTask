@@ -24,18 +24,6 @@ namespace Core
 
 		#endregion
 
-		#region UnityMethods
-
-		private void Update()
-		{
-			if (Input.GetKeyDown(KeyCode.L))
-			{
-				LoadGameScene();
-			}
-		}
-
-		#endregion
-
 		#region PrivateMethods
 
 		private async Task LoadGameScene()
