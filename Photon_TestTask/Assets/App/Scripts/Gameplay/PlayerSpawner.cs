@@ -1,4 +1,5 @@
 ﻿using Core.Interfaces;
+using Data;
 using Fusion;
 using UnityEngine;
 using Zenject;
@@ -7,15 +8,10 @@ namespace Gameplay
 {
 	public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
 	{
-		#region SerializeFields
-
-		[SerializeField] private NetworkObject m_playerPrefab;
-
-		#endregion
-
 		#region PrivateFields
 
-		[Inject] private INetworkRunnerProvider m_networkRunnerProvider;
+		[Inject] private readonly PlayerPrefabsData m_playerPrefabsData;
+		[Inject] private readonly INetworkRunnerProvider m_networkRunnerProvider;
 
 		#endregion
 
@@ -25,7 +21,7 @@ namespace Gameplay
 		{
 			if (player == Runner.LocalPlayer)
 			{
-				Runner.Spawn(m_playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+				Runner.Spawn(m_playerPrefabsData.PlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 			}
 		}
 
@@ -33,7 +29,7 @@ namespace Gameplay
 
 		#region PrivateMethods
 
-		private void Start()
+		private void Awake()
 		{
 			if (m_networkRunnerProvider.Runner.State != NetworkRunner.States.Running)
 			{

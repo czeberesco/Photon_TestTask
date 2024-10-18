@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_networkRunnerProvider: {fileID: 6146176668285021088}
   m_networkSceneManager: {fileID: 7324138489374981467}
+  m_playerPrefabsData: {fileID: 11400000, guid: c51c5ad32e5e74043991e6df79caec89, type: 2}
 --- !u!1 &5635775928461328371
 GameObject:
   m_ObjectHideFlags: 0
