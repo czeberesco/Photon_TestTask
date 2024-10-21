@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UI.Interfaces;
+using UnityEngine;
 
 namespace UI
 {

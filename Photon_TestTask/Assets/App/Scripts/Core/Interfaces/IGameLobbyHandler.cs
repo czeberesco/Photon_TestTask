@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Data;
 using Fusion;
 
@@ -8,14 +9,16 @@ namespace Core.Interfaces
 	{
 		#region Events
 
-		public event Action<StartGameResult, LobbyData> JoinLobbySuccess;
-		public event Action<StartGameResult> JoinLobbyFailed;
+		event Action<StartGameResult, LobbyData> JoinLobbySuccess;
+		event Action<StartGameResult> JoinLobbyFailed;
+		event Action<List<SessionInfo>> SessionListUpdated;
 
 		#endregion
 
 		#region Properties
 
-		public LobbyData CurrentLobby { get; }
+		LobbyData CurrentLobby { get; }
+		List<SessionInfo> GetCurrentSessions();
 
 		#endregion
 	}

@@ -13,7 +13,7 @@ namespace Core
 	{
 		#region SerializeFields
 
-		[SerializeField] private GameSceneData m_gameSceneData;
+		[SerializeField] private GameLevelData m_gameLevelData;
 
 		#endregion
 
@@ -30,7 +30,7 @@ namespace Core
 		{
 			NetworkRunner runner = m_networkRunnerProvider.Runner;
 
-			NetworkSceneInfo networkSceneInfo = await AddressableUtils.GetNetworkSceneInfo(m_gameSceneData.SceneAssetReference);
+			NetworkSceneInfo networkSceneInfo = await AddressableUtils.GetNetworkSceneInfoFromAssetReference(m_gameLevelData.SceneAssetReference);
 
 			var roomOptions = new StartGameArgs
 			{

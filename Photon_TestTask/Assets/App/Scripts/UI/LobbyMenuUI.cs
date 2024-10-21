@@ -7,7 +7,7 @@ using Zenject;
 
 namespace UI
 {
-	public class MainMenuUI : MonoBehaviour
+	public class LobbyMenuUI : MonoBehaviour
 	{
 		#region Properties
 

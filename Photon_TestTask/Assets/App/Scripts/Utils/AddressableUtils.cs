@@ -14,20 +14,25 @@ namespace Utils
 	{
 		#region PublicMethods
 
-		public static async Task<NetworkSceneInfo> GetNetworkSceneInfo(AssetReference assetReference)
+		public static async Task<NetworkSceneInfo> GetNetworkSceneInfoFromAssetReference(AssetReference assetReference)
+		{
+			string scenePath = await GetScenePath(assetReference);
+
+			return GetNetworkSceneInfoFromPath(scenePath);
+		}
+
+		public static NetworkSceneInfo GetNetworkSceneInfoFromPath(string path)
 		{
 			SceneRef sceneRef = default;
 
-			string scenePath = await GetScenePath(assetReference);
-
-			if (scenePath.IsNullOrEmpty())
+			if (path.IsNullOrEmpty())
 			{
 				Debug.LogError("Path for provided asset reference is invalid");
 			}
 			else
 			{
-				Debug.Log($"Scene path successfully acquired. Path: \"{scenePath}\"");
-				sceneRef = SceneRef.FromPath(scenePath);
+				Debug.Log($"Scene path successfully acquired. Path: \"{path}\"");
+				sceneRef = SceneRef.FromPath(path);
 			}
 
 			var sceneInfo = new NetworkSceneInfo();
@@ -40,24 +45,24 @@ namespace Utils
 			return sceneInfo;
 		}
 
-		#endregion
-
-		#region PrivateMethods
-
-		private static async Task<string> GetScenePath(AssetReference assetReference)
+		public static async Task<string> GetScenePath(AssetReference assetReference)
 		{
 			AsyncOperationHandle<IList<IResourceLocation>> handle = Addressables.LoadResourceLocationsAsync(assetReference, typeof(SceneInstance));
 
 			await handle.Task;
 
-			if (handle.Status == AsyncOperationStatus.Failed || handle.Result.Count == 0)
+			string result = handle.Status == AsyncOperationStatus.Failed || handle.Result.Count == 0 ? string.Empty : handle.Result[0].PrimaryKey;
+
+			handle.Release();
+
+			if (string.IsNullOrEmpty(result))
 			{
 				Debug.LogError($"Failed to retrieve path from asset reference: {assetReference.AssetGUID}");
 
 				return string.Empty;
 			}
 
-			return handle.Result[0].PrimaryKey;
+			return result;
 		}
 
 		#endregion

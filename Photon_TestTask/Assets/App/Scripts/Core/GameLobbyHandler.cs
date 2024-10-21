@@ -16,6 +16,7 @@ namespace Core
 
 		public event Action<StartGameResult, LobbyData> JoinLobbySuccess;
 		public event Action<StartGameResult> JoinLobbyFailed;
+		public event Action<List<SessionInfo>> SessionListUpdated;
 
 		#endregion
 
@@ -29,6 +30,7 @@ namespace Core
 
 		private readonly INetworkRunnerProvider m_networkRunnerProvider;
 		private readonly INetworkRunnerEventsDispatcher m_networkRunnerEventsDispatcher;
+		private List<SessionInfo> m_currentSessions = new();
 
 		#endregion
 
@@ -51,6 +53,11 @@ namespace Core
 			UnregisterFromEvents();
 
 			Debug.Log($"{nameof(GameLobbyHandler)} disposed");
+		}
+
+		public List<SessionInfo> GetCurrentSessions()
+		{
+			return m_currentSessions;
 		}
 
 		public async void Initialize()
@@ -119,6 +126,10 @@ namespace Core
 					$", open status: [{sessionInfo.IsOpen}]"
 				);
 			}
+
+			m_currentSessions = sessionInfoList;
+
+			SessionListUpdated?.Invoke(m_currentSessions);
 		}
 
 		#endregion

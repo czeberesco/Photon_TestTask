@@ -13,6 +13,7 @@ namespace Core.Installers
 		[SerializeField] private NetworkRunnerProvider m_networkRunnerProvider;
 		[SerializeField] private NetworkSceneManagerDefault m_networkSceneManager;
 		[SerializeField] private PlayerPrefabsData m_playerPrefabsData;
+		[SerializeField] private GameLevelDataCollection m_gameLevelDataCollection;
 
 		#endregion
 
@@ -26,6 +27,7 @@ namespace Core.Installers
 			Container.Bind<PlayerPrefabsData>().FromInstance(m_playerPrefabsData).AsSingle();
 			Container.BindInterfacesAndSelfTo<ConnectionHandler>().AsSingle().NonLazy();
 			Container.BindInterfacesAndSelfTo<GameLobbyHandler>().AsSingle().NonLazy();
+			Container.Bind<GameLevelDataCollection>().FromInstance(m_gameLevelDataCollection).AsSingle();
 		}
 
 		#endregion

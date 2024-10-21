@@ -1,4 +1,4 @@
-﻿namespace UI
+﻿namespace UI.Interfaces
 {
 	public interface IUIPage
 	{
