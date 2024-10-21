@@ -14,7 +14,8 @@ namespace Core
 	{
 		#region Events
 
-		public event Action<LobbyData> JoinedLobby;
+		public event Action<StartGameResult, LobbyData> JoinLobbySuccess;
+		public event Action<StartGameResult> JoinLobbyFailed;
 
 		#endregion
 
@@ -78,13 +79,15 @@ namespace Core
 				Debug.Log($"Joined lobby {lobbyName}");
 				CurrentLobby = new LobbyData(lobbyName);
 
-				JoinedLobby?.Invoke(CurrentLobby);
+				JoinLobbySuccess?.Invoke(result, CurrentLobby);
 
 				return;
 			}
 
 			CurrentLobby = new LobbyData();
 			Debug.LogError($"Failed to joined lobby: {result.ShutdownReason}");
+
+			JoinLobbyFailed?.Invoke(result);
 		}
 
 		private void RegisterToEvents()

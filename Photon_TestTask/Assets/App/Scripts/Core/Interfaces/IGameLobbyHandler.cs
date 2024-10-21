@@ -1,5 +1,6 @@
 ﻿using System;
 using Data;
+using Fusion;
 
 namespace Core.Interfaces
 {
@@ -7,7 +8,8 @@ namespace Core.Interfaces
 	{
 		#region Events
 
-		public event Action<LobbyData> JoinedLobby;
+		public event Action<StartGameResult, LobbyData> JoinLobbySuccess;
+		public event Action<StartGameResult> JoinLobbyFailed;
 
 		#endregion
 
