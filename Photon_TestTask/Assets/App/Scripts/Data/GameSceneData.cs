@@ -1,6 +1,6 @@
-﻿using DefaultNamespace;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AddressableAssets;
+using Utils;
 
 namespace Data
 {

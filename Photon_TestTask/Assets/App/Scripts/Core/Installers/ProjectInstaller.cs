@@ -21,9 +21,11 @@ namespace Core.Installers
 		public override void InstallBindings()
 		{
 			Container.Bind<INetworkRunnerProvider>().FromInstance(m_networkRunnerProvider).AsSingle();
+			Container.BindInterfacesAndSelfTo<NetworkRunnerEventsDispatcher>().AsSingle().NonLazy();
 			Container.Bind<INetworkSceneManager>().FromInstance(m_networkSceneManager).AsSingle();
 			Container.Bind<PlayerPrefabsData>().FromInstance(m_playerPrefabsData).AsSingle();
 			Container.BindInterfacesAndSelfTo<ConnectionHandler>().AsSingle().NonLazy();
+			Container.BindInterfacesAndSelfTo<GameLobbyHandler>().AsSingle().NonLazy();
 		}
 
 		#endregion

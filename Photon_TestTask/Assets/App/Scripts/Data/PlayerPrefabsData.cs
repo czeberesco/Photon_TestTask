@@ -1,6 +1,6 @@
-﻿using DefaultNamespace;
-using Fusion;
+﻿using Fusion;
 using UnityEngine;
+using Utils;
 
 namespace Data
 {
