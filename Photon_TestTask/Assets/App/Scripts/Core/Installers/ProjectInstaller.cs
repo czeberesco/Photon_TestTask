@@ -2,6 +2,7 @@
 using Data;
 using Fusion;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using Zenject;
 
 namespace Core.Installers
@@ -10,6 +11,7 @@ namespace Core.Installers
 	{
 		#region SerializeFields
 
+		[SerializeField] private AssetReference m_mainMenuAssetReference;
 		[SerializeField] private NetworkRunnerProvider m_networkRunnerProvider;
 		[SerializeField] private NetworkSceneManagerDefault m_networkSceneManager;
 		[SerializeField] private PlayerPrefabsData m_playerPrefabsData;
@@ -21,6 +23,8 @@ namespace Core.Installers
 
 		public override void InstallBindings()
 		{
+			Container.BindInterfacesAndSelfTo<GameLoader>().FromInstance(new GameLoader(m_mainMenuAssetReference));
+
 			Container.Bind<INetworkRunnerProvider>().FromInstance(m_networkRunnerProvider).AsSingle();
 			Container.BindInterfacesAndSelfTo<NetworkRunnerEventsDispatcher>().AsSingle().NonLazy();
 			Container.Bind<INetworkSceneManager>().FromInstance(m_networkSceneManager).AsSingle();

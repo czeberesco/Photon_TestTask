@@ -78,6 +78,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e82447f49b649f999cb2ad1e15e7bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_mainMenuAssetReference:
+    m_AssetGUID: d78f300e380acba4283c14c9015cc91d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   m_networkRunnerProvider: {fileID: 6146176668285021088}
   m_networkSceneManager: {fileID: 7324138489374981467}
   m_playerPrefabsData: {fileID: 11400000, guid: c51c5ad32e5e74043991e6df79caec89, type: 2}
