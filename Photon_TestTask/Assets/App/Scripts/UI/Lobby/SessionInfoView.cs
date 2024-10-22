@@ -1,5 +1,7 @@
-﻿using TMPro;
+﻿using Fusion;
+using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace UI.Lobby
 {
@@ -15,13 +17,19 @@ namespace UI.Lobby
 
 		#region PublicMethods
 
-		public void Setup(Fusion.SessionInfo sessionInfo)
+		public void Setup(SessionInfo sessionInfo)
 		{
 			m_sessionNameLabel.text = sessionInfo.Name;
 			m_playersCountInfo.text = $"{sessionInfo.PlayerCount}/{sessionInfo.MaxPlayers}";
 
 			m_joinButton.Setup(sessionInfo);
 		}
+
+		#endregion
+
+		#region NestedTypes
+
+		public class Factory : PlaceholderFactory<SessionInfoView> { }
 
 		#endregion
 	}

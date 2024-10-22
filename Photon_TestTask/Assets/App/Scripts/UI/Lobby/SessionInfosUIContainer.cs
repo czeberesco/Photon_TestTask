@@ -9,7 +9,6 @@ namespace UI.Lobby
 	{
 		#region SerializeFields
 
-		[SerializeField] private SessionInfoView m_sessionInfoViewPrefab;
 		[SerializeField] private Transform m_sessionInfoViewsRoot;
 		[SerializeField] private GameObject m_noSessionsAvailableLabel;
 
@@ -18,6 +17,7 @@ namespace UI.Lobby
 		#region PrivateFields
 
 		[Inject] private IGameLobbyHandler m_gameLobbyHandler;
+		[Inject] private SessionInfoView.Factory m_sessionInfoViewFactory;
 		private List<SessionInfoView> m_currentSessionViews = new();
 
 		#endregion
@@ -52,7 +52,8 @@ namespace UI.Lobby
 
 			foreach (Fusion.SessionInfo sessionInfo in sessionInfos)
 			{
-				SessionInfoView sessionInfoView = Instantiate(m_sessionInfoViewPrefab, m_sessionInfoViewsRoot);
+				SessionInfoView sessionInfoView = m_sessionInfoViewFactory.Create();
+				sessionInfoView.transform.parent = m_sessionInfoViewsRoot;
 				sessionInfoView.Setup(sessionInfo);
 				m_currentSessionViews.Add(sessionInfoView);
 			}
