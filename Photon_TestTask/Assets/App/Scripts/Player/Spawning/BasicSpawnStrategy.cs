@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Player.Spawning
 {
-	public class BasicSpawnStrategy : SpawnStrategy
+	public class BasicSpawnStrategy : AbstractSpawnStrategy
 	{
 		#region SerializeFields
 

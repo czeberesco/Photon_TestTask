@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Player.Spawning
 {
-	public abstract class SpawnStrategy : MonoBehaviour
+	public abstract class AbstractSpawnStrategy : MonoBehaviour
 	{
 		#region PublicMethods
 

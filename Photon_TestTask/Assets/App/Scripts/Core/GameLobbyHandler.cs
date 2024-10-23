@@ -79,7 +79,7 @@ namespace Core
 		{
 			Debug.Log($"Joining lobby {lobbyName} ...");
 
-			StartGameResult result = await runner.JoinSessionLobby(SessionLobby.Shared, lobbyName);
+			StartGameResult result = await runner.JoinSessionLobby(SessionLobby.ClientServer, lobbyName);
 
 			if (result.Ok)
 			{

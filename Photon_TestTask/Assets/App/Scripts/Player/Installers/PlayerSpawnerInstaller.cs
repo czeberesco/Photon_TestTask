@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Data;
+using Player.Spawning;
+using UnityEngine;
 using Zenject;
 
 namespace Player.Installers
@@ -7,7 +9,7 @@ namespace Player.Installers
 	{
 		#region SerializeFields
 
-		[SerializeField] private PlayerOfflineRig m_playerOfflineRig;
+		[SerializeField] private PlayerPrefabsData m_playerPrefabsData;
 
 		#endregion
 
@@ -15,7 +17,9 @@ namespace Player.Installers
 
 		public override void InstallBindings()
 		{
-			Container.BindFactory<PlayerOfflineRig, PlayerOfflineRig.Factory>().FromComponentInNewPrefab(m_playerOfflineRig);
+			Container.Bind<PlayerPrefabsData>().FromInstance(m_playerPrefabsData).AsSingle();
+			Container.BindFactory<PlayerOfflineRig, PlayerOfflineRig.Factory>().FromComponentInNewPrefab(m_playerPrefabsData.PlayerOfflineRigPrefab);
+			Container.BindFactory<AbstractSpawnStrategy, HostSpawner, HostSpawner.Factory>();
 		}
 
 		#endregion

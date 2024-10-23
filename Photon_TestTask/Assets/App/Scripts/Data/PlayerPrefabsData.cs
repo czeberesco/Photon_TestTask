@@ -1,4 +1,5 @@
 ﻿using Fusion;
+using Player;
 using UnityEngine;
 using Utils;
 
@@ -9,13 +10,16 @@ namespace Data
 	{
 		#region Properties
 
-		public NetworkObject PlayerPrefab => m_playerPrefab;
+		public NetworkObject PlayerNetworkPrefab => m_playerNetworkPrefab;
+
+		public PlayerOfflineRig PlayerOfflineRigPrefab => m_playerOfflineRigPrefab;
 
 		#endregion
 
 		#region SerializeFields
 
-		[SerializeField] private NetworkObject m_playerPrefab;
+		[SerializeField] private NetworkObject m_playerNetworkPrefab;
+		[SerializeField] private PlayerOfflineRig m_playerOfflineRigPrefab;
 
 		#endregion
 	}

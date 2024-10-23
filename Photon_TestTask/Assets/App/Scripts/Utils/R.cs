@@ -9,5 +9,19 @@
 		public const string SESSION_PROPERTY_SCENE_PATH = "SessionScenePath";
 
 		#endregion
+
+		#region NestedTypes
+
+		public static class ExecutionOrder
+		{
+			#region Constants
+
+			public const int NETWORK_HAND = 10;
+			public const int NETWORK_RIG = 100;
+
+			#endregion
+		}
+
+		#endregion
 	}
 }
