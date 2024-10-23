@@ -495,8 +495,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1938168401899434879}
+  - component: {fileID: 7222259112303463926}
+  - component: {fileID: 3779130242856510375}
   - component: {fileID: 7469214685520076672}
   - component: {fileID: 805385746322034562}
+  - component: {fileID: 3455677048352731796}
   m_Layer: 0
   m_Name: PlayerOfflineRig
   m_TagString: Untagged
@@ -521,6 +524,37 @@ Transform:
   - {fileID: 3029722288533392051}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7222259112303463926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628048939552739261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 3779130242856510375}
+  _installerPrefabs: []
+  _findSiblingMonoInstallers: 0
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &3779130242856510375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628048939552739261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe54640d2d547a6a1608ced8c8f4da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7469214685520076672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +584,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3fa2e710ab49c2945328f1879aa740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_rigInputTracker: {fileID: 3455677048352731796}
+--- !u!114 &3455677048352731796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628048939552739261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5215e973e2b5cf4a96d61c6410a0595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playArea: {fileID: 1938168401899434879}
+  m_head: {fileID: 2617647737322453782}
+  m_leftHand: {fileID: 3180536362440900284}
+  m_rightHand: {fileID: 8870547055614368618}
 --- !u!1 &3156729260796416549
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +759,7 @@ GameObject:
   - component: {fileID: 5073365671221183426}
   - component: {fileID: 2280037728084115986}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Head
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,7 +1036,7 @@ GameObject:
   - component: {fileID: 3180536362440900284}
   - component: {fileID: 1746584188552076078}
   m_Layer: 0
-  m_Name: Left Controller
+  m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1685,7 +1736,7 @@ GameObject:
   - component: {fileID: 8870547055614368618}
   - component: {fileID: 7667989342403633407}
   m_Layer: 0
-  m_Name: Right Controller
+  m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
