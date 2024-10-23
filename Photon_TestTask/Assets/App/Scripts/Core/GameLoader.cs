@@ -1,7 +1,4 @@
-using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceProviders;
 using Zenject;
 
 namespace Core
@@ -27,6 +24,8 @@ namespace Core
 
 		public async void Initialize()
 		{
+			// Force load from main menu scene only in builds
+#if !UNITY_EDITOR
 			Debug.Log("Loading main menu scene");
 
 			AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(m_mainMenuSceneReference);
@@ -34,6 +33,7 @@ namespace Core
 			await handle.Task;
 
 			Debug.Log("Main menu scene loaded");
+#endif
 		}
 
 		#endregion
