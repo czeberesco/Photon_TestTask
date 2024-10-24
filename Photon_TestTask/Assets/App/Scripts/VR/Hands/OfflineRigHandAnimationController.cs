@@ -1,17 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace VR
+namespace VR.Hands
 {
-	public class HandAnimationController : MonoBehaviour
+	public class OfflineRigHandAnimationController : HandAnimationControllerBase
 	{
-		#region Statics
-
-		private static readonly int m_gripHash = Animator.StringToHash("Grip");
-		private static readonly int m_triggerHash = Animator.StringToHash("Trigger");
-
-		#endregion
-
 		#region Events
 
 		[SerializeField] private InputActionReference m_gripInputActionReference;
@@ -21,17 +14,18 @@ namespace VR
 
 		#region SerializeFields
 
-		[SerializeField] private Animator m_animator;
 		[SerializeField] private float m_animationSpeed = 10.0f;
 
 		#endregion
 
 		#region PrivateFields
 
-		private float m_gripValue;
-		private float m_triggerValue;
+		private float m_gripAnimatedValue;
+		private float m_triggerAnimatedValue;
 
 		#endregion
+
+		#region PrivateMethods
 
 		#region UnityMethods
 
@@ -43,28 +37,26 @@ namespace VR
 
 		#endregion
 
-		#region PrivateMethods
-
 		private void AnimateGrip()
 		{
-			m_gripValue = Mathf.MoveTowards(
-				m_gripValue,
+			m_gripAnimatedValue = Mathf.MoveTowards(
+				m_gripAnimatedValue,
 				m_gripInputActionReference.action.ReadValue<float>(),
 				Time.deltaTime * m_animationSpeed
 			);
 
-			m_animator.SetFloat(m_gripHash, m_gripValue);
+			SetGripValue(m_gripAnimatedValue);
 		}
 
 		private void AnimateTrigger()
 		{
-			m_triggerValue = Mathf.MoveTowards(
-				m_triggerValue,
+			m_triggerAnimatedValue = Mathf.MoveTowards(
+				m_triggerAnimatedValue,
 				m_triggerInputActionReference.action.ReadValue<float>(),
 				Time.deltaTime * m_animationSpeed
 			);
 
-			m_animator.SetFloat(m_triggerHash, m_triggerValue);
+			SetTriggerValue(m_triggerAnimatedValue);
 		}
 
 		#endregion
