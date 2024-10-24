@@ -2,7 +2,7 @@
 
 namespace VR.Hands
 {
-	public class HandAnimationControllerBase : MonoBehaviour
+	public abstract class HandAnimationControllerBase : MonoBehaviour
 	{
 		#region Statics
 

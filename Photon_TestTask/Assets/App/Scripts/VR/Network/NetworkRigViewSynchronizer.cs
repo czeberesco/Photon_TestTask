@@ -1,5 +1,6 @@
 ﻿using Fusion;
 using UnityEngine;
+using VR.Hands;
 
 namespace VR.Network
 {
@@ -9,8 +10,9 @@ namespace VR.Network
 
 		[SerializeField] private NetworkTransform m_playArea;
 		[SerializeField] private NetworkTransform m_head;
-		[SerializeField] private NetworkTransform m_leftHand;
-		[SerializeField] private NetworkTransform m_rightHand;
+		[SerializeField] private NetworkHand m_leftHand;
+		[SerializeField] private NetworkHand m_rightHand;
+		
 
 		#endregion
 
