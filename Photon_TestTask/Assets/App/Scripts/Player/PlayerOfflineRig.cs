@@ -1,11 +1,12 @@
 ﻿using Core.Interfaces;
 using Fusion;
 using UnityEngine;
+using VR;
 using Zenject;
 
 namespace Player
 {
-	public class PlayerOfflineRig : MonoBehaviour
+	public class PlayerOfflineRig : MonoBehaviour, IRigInputProvider
 	{
 		#region SerializeFields
 
@@ -29,6 +30,15 @@ namespace Player
 		private void OnDestroy()
 		{
 			UnregisterFromEvents();
+		}
+
+		#endregion
+
+		#region InterfaceImplementations
+
+		public RigInput GetRigInput()
+		{
+			return m_rigInputTracker.GetRigInput();
 		}
 
 		#endregion

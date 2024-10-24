@@ -1,7 +1,8 @@
 ﻿using Fusion;
-using Player;
+using Player.Interfaces;
 using UnityEngine;
 using Utils;
+using Zenject;
 
 namespace VR.Network
 {
@@ -9,14 +10,14 @@ namespace VR.Network
 	public class NetworkRig : NetworkBehaviour
 	{
 		#region SerializeFields
-		
+
 		[SerializeField] private NetworkRigViewSynchronizer m_viewSynchronizer;
 
 		#endregion
 
 		#region PrivateFields
 
-		private IRigInputProvider m_localOfflineRigInputProvider;
+		[Inject] private IPlayerOfflineRigProvider m_offlineRigProvider;
 
 		#endregion
 
@@ -41,15 +42,10 @@ namespace VR.Network
 		// are updated, network positions are handled separately
 		public override void Render()
 		{
-			if (Object.HasInputAuthority && m_localOfflineRigInputProvider != null)
+			if (Object.HasInputAuthority && m_offlineRigProvider != null && m_offlineRigProvider.GetLocalPlayerOfflineRig() != null)
 			{
-				m_viewSynchronizer.Synchronize(m_localOfflineRigInputProvider.GetRigInput());
+				m_viewSynchronizer.Synchronize(m_offlineRigProvider.GetLocalPlayerOfflineRig().GetRigInput());
 			}
-		}
-
-		public void BindToLocalOfflineRig(IRigInputProvider rigInputProvider)
-		{
-			m_localOfflineRigInputProvider = rigInputProvider;
 		}
 
 		#endregion
