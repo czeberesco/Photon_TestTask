@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using VR.Animation;
+using VR.Views;
 
 namespace VR.Offline
 {
@@ -15,7 +15,7 @@ namespace VR.Offline
 
 		#region SerializeFields
 
-		[SerializeField] private HandAnimationController m_handAnimationController;
+		[SerializeField] private HandView m_handView;
 
 		#endregion
 
@@ -23,8 +23,13 @@ namespace VR.Offline
 
 		private void Update()
 		{
-			m_handAnimationController.SetTargetGripValue(m_gripInputActionReference.action.ReadValue<float>());
-			m_handAnimationController.SetTargetTriggerValue(m_triggerInputActionReference.action.ReadValue<float>());
+			m_handView.UpdateHandViewInput(
+				new ControllerInput
+				{
+					GripInputValue = m_gripInputActionReference.action.ReadValue<float>(),
+					TriggerInputValue = m_triggerInputActionReference.action.ReadValue<float>()
+				}
+			);
 		}
 
 		#endregion

@@ -1,16 +1,19 @@
 ﻿using Core.Interfaces;
 using Fusion;
 using Player;
+using Player.Interfaces;
 using UnityEngine;
+using VR.Views;
 using Zenject;
 
 namespace VR.Offline
 {
-	public class OfflineRig : MonoBehaviour, IRigInputProvider
+	public class OfflineRig : MonoBehaviour, IRigInputProvider, INetworkViewSetup
 	{
 		#region SerializeFields
 
 		[SerializeField] private RigInputTracker m_rigInputTracker;
+		[SerializeField] private RigVisibilityHandler m_rigVisibilityHandler;
 
 		#endregion
 
@@ -35,6 +38,16 @@ namespace VR.Offline
 		#endregion
 
 		#region InterfaceImplementations
+
+		public void SetViewForLocalPlayer()
+		{
+			m_rigVisibilityHandler.SetViewForLocalPlayer();
+		}
+
+		public void SetViewForProxyPlayer()
+		{
+			m_rigVisibilityHandler.SetViewForProxyPlayer();
+		}
 
 		public RigInput GetRigInput()
 		{

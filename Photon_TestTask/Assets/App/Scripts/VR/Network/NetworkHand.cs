@@ -1,7 +1,7 @@
 ﻿using Fusion;
 using UnityEngine;
 using Utils;
-using VR.Animation;
+using VR.Views;
 
 namespace VR.Network
 {
@@ -10,7 +10,7 @@ namespace VR.Network
 	{
 		#region SerializeFields
 
-		[SerializeField] private HandAnimationController m_handAnimationController;
+		[SerializeField] private HandView m_handView;
 
 		#endregion
 
@@ -18,8 +18,7 @@ namespace VR.Network
 
 		public void SetControllerInput(ControllerInput controllerInput)
 		{
-			m_handAnimationController.SetTargetGripValue(controllerInput.GripInputValue);
-			m_handAnimationController.SetTargetTriggerValue(controllerInput.TriggerInputValue);
+			m_handView.UpdateHandViewInput(controllerInput);
 		}
 
 		#endregion

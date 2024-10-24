@@ -328,7 +328,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3240524871626806228}
   - component: {fileID: 3240524871636401154}
+  - component: {fileID: 7209626038074585049}
   - component: {fileID: 2372449532534771546}
+  - component: {fileID: 5857151615964278803}
   m_Layer: 0
   m_Name: RightHandView
   m_TagString: Untagged
@@ -374,6 +376,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7209626038074585049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240524871627034548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34da2df423ff68948bcbbc19de8578dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_handAnimationController: {fileID: 2372449532534771546}
 --- !u!114 &2372449532534771546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +403,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animator: {fileID: 3240524871636401154}
   m_handAnimationSettings: {fileID: 11400000, guid: afec7137d5721bf4caa1038c7f226aee, type: 2}
+--- !u!114 &5857151615964278803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240524871627034548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655803c2a655467da5bab44b8c8bfc70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_renderers:
+  - {fileID: 3240524871640629954}
+  m_visibilityState: 0
+  m_rigElementViewSettings: {fileID: 11400000, guid: 5bfba6ef9fc90d140833a5f694731dfb, type: 2}
 --- !u!1 &3240524871627034550
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +471,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e3aeda23d20122498e95e3a9e93a500, type: 2}
+  - {fileID: 2100000, guid: 9ba83bf591eb2fd44a328d51e7586b69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
