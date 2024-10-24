@@ -1,5 +1,11 @@
+using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using Zenject;
+#if !UNITY_EDITOR
+using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
+#endif
 
 namespace Core
 {
@@ -33,6 +39,8 @@ namespace Core
 			await handle.Task;
 
 			Debug.Log("Main menu scene loaded");
+#else
+			await Task.Delay(0);
 #endif
 		}
 
