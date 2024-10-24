@@ -1,6 +1,5 @@
 ﻿using Fusion;
 using UnityEngine;
-using VR.Hands;
 
 namespace VR.Network
 {
@@ -12,7 +11,6 @@ namespace VR.Network
 		[SerializeField] private NetworkTransform m_head;
 		[SerializeField] private NetworkHand m_leftHand;
 		[SerializeField] private NetworkHand m_rightHand;
-		
 
 		#endregion
 
@@ -36,6 +34,9 @@ namespace VR.Network
 
 			rightHandTransform.position = rigInput.RightHandPosition;
 			rightHandTransform.rotation = rigInput.RightHandRotation;
+
+			m_leftHand.SetControllerInput(rigInput.LeftControllerInput);
+			m_rightHand.SetControllerInput(rigInput.RightControllerInput);
 		}
 
 		#endregion

@@ -3,6 +3,7 @@ using Fusion;
 using Player.Interfaces;
 using Player.Spawning.Data;
 using UnityEngine;
+using VR.Offline;
 using Zenject;
 
 namespace Player.Spawning
@@ -19,10 +20,10 @@ namespace Player.Spawning
 
 		[Inject] private readonly INetworkRunnerProvider m_networkRunnerProvider;
 		[Inject] private readonly IPlayerOfflineRigProvider m_playerOfflineRigProvider;
-		[Inject] private PlayerOfflineRig.Factory m_playerOfflineRigFactory;
+		[Inject] private OfflineRig.Factory m_playerOfflineRigFactory;
 		[Inject] private HostSpawner.Factory m_hostSpawnerFactory;
 
-		private PlayerOfflineRig m_playerOfflineRig;
+		private OfflineRig m_offlineRig;
 
 		// Only host create this class
 		private HostSpawner m_hostSpawner;
@@ -62,21 +63,21 @@ namespace Player.Spawning
 		// already on scene to prevent doubling offline rigs when placed on scene by hand
 		private void SpawnOfflineRig()
 		{
-			if (m_playerOfflineRig != null)
+			if (m_offlineRig != null)
 			{
 				Debug.LogWarning("Player offline rig already spawned");
 
 				return;
 			}
 
-			Debug.Log($"Spawning {nameof(PlayerOfflineRig)}");
+			Debug.Log($"Spawning {nameof(OfflineRig)}");
 
 			PlayerSpawnData spawnData = m_spawnStrategy.GetSpawnData();
-			m_playerOfflineRig = m_playerOfflineRigFactory.Create();
-			m_playerOfflineRig.transform.SetPositionAndRotation(spawnData.Position, spawnData.Rotation);
-			m_playerOfflineRigProvider.SetLocalPlayerOfflineRig(m_playerOfflineRig);
+			m_offlineRig = m_playerOfflineRigFactory.Create();
+			m_offlineRig.transform.SetPositionAndRotation(spawnData.Position, spawnData.Rotation);
+			m_playerOfflineRigProvider.SetLocalPlayerOfflineRig(m_offlineRig);
 
-			Debug.Log($"{nameof(PlayerOfflineRig)} spawned");
+			Debug.Log($"{nameof(OfflineRig)} spawned");
 		}
 
 		#endregion

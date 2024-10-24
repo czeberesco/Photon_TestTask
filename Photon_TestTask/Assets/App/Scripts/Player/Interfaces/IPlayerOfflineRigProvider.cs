@@ -1,11 +1,13 @@
-﻿namespace Player.Interfaces
+﻿using VR.Offline;
+
+namespace Player.Interfaces
 {
 	public interface IPlayerOfflineRigProvider
 	{
 		#region PublicMethods
 
-		public PlayerOfflineRig GetLocalPlayerOfflineRig();
-		public void SetLocalPlayerOfflineRig(PlayerOfflineRig playerOfflineRig);
+		public OfflineRig GetLocalPlayerOfflineRig();
+		public void SetLocalPlayerOfflineRig(OfflineRig offlineRig);
 
 		#endregion
 	}

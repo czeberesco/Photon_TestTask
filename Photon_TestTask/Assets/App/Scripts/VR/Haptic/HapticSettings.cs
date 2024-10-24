@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace VR
+namespace VR.Haptic
 {
 	[Serializable]
 	public struct HapticSettings

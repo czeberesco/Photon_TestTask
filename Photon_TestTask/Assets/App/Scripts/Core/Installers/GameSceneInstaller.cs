@@ -1,5 +1,6 @@
 ﻿using Player;
 using Player.Interfaces;
+using VR.Offline;
 using Zenject;
 
 namespace Core.Installers
@@ -10,7 +11,7 @@ namespace Core.Installers
 
 		public override void InstallBindings()
 		{
-			Container.Bind<IPlayerOfflineRigProvider>().To<PlayerOfflineRigProvider>().AsSingle();
+			Container.Bind<IPlayerOfflineRigProvider>().To<OfflineRigProvider>().AsSingle();
 		}
 
 		#endregion

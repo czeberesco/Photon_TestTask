@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7032823468574153849}
   - component: {fileID: 151677974784030502}
   - component: {fileID: 1506148733144623639}
-  - component: {fileID: 2405135349512463884}
+  - component: {fileID: 7411001377606510083}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 3
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 32
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_joiningLobbyPage: {fileID: 5162500032687729827}
   m_joiningLobbyFailedPage: {fileID: 7247724177296651646}
   m_lobbyPage: {fileID: 1957550279964419618}
---- !u!114 &2405135349512463884
+--- !u!114 &7411001377606510083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,16 +130,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4692572647392829908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afe3cda3e244f60419474164d6ba3b0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 0
   m_CheckFor2DOcclusion: 0
   m_CheckFor3DOcclusion: 0
-  m_MaxDistance: 1000
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 32
+  m_RaycastTriggerInteraction: 1
 --- !u!1001 &4101529514729329266
 PrefabInstance:
   m_ObjectHideFlags: 0

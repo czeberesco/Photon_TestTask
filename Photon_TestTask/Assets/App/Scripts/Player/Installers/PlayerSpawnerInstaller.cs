@@ -1,6 +1,7 @@
 ﻿using Data;
 using Player.Spawning;
 using UnityEngine;
+using VR.Offline;
 using Zenject;
 
 namespace Player.Installers
@@ -18,7 +19,7 @@ namespace Player.Installers
 		public override void InstallBindings()
 		{
 			Container.Bind<PlayerPrefabsData>().FromInstance(m_playerPrefabsData).AsSingle();
-			Container.BindFactory<PlayerOfflineRig, PlayerOfflineRig.Factory>().FromComponentInNewPrefab(m_playerPrefabsData.PlayerOfflineRigPrefab);
+			Container.BindFactory<OfflineRig, OfflineRig.Factory>().FromComponentInNewPrefab(m_playerPrefabsData.OfflineRigPrefab);
 			Container.BindFactory<AbstractSpawnStrategy, HostSpawner, HostSpawner.Factory>();
 		}
 

@@ -2,6 +2,7 @@
 using Player;
 using UnityEngine;
 using Utils;
+using VR.Offline;
 
 namespace Data
 {
@@ -12,14 +13,14 @@ namespace Data
 
 		public NetworkObject PlayerNetworkPrefab => m_playerNetworkPrefab;
 
-		public PlayerOfflineRig PlayerOfflineRigPrefab => m_playerOfflineRigPrefab;
+		public OfflineRig OfflineRigPrefab => m_offlineRigPrefab;
 
 		#endregion
 
 		#region SerializeFields
 
 		[SerializeField] private NetworkObject m_playerNetworkPrefab;
-		[SerializeField] private PlayerOfflineRig m_playerOfflineRigPrefab;
+		[SerializeField] private OfflineRig m_offlineRigPrefab;
 
 		#endregion
 	}

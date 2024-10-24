@@ -15,6 +15,8 @@ namespace VR
 		public Quaternion LeftHandRotation;
 		public Vector3 RightHandPosition;
 		public Quaternion RightHandRotation;
+		public ControllerInput LeftControllerInput;
+		public ControllerInput RightControllerInput;
 
 		#endregion
 	}

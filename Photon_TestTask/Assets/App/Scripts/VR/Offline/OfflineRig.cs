@@ -1,12 +1,12 @@
 ﻿using Core.Interfaces;
 using Fusion;
+using Player;
 using UnityEngine;
-using VR;
 using Zenject;
 
-namespace Player
+namespace VR.Offline
 {
-	public class PlayerOfflineRig : MonoBehaviour, IRigInputProvider
+	public class OfflineRig : MonoBehaviour, IRigInputProvider
 	{
 		#region SerializeFields
 
@@ -64,7 +64,7 @@ namespace Player
 
 		#region NestedTypes
 
-		public class Factory : PlaceholderFactory<PlayerOfflineRig> { }
+		public class Factory : PlaceholderFactory<OfflineRig> { }
 
 		#endregion
 	}

@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 
-namespace VR
+namespace VR.Haptic
 {
 	public class XRUIHapticFeedback : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 	{
@@ -55,14 +55,14 @@ namespace VR
 				return;
 			}
 
-			var interactor = InputModule.GetInteractor(pointerEventData.pointerId) as XRRayInteractor;
+			XRBaseInputInteractor interactor = InputModule.GetInteractor(pointerEventData.pointerId) as XRBaseInputInteractor;
 
 			if (interactor == null)
 			{
 				return;
 			}
 
-			interactor.xrController.SendHapticImpulse(hapticSettings.Intensity, hapticSettings.Duration);
+			interactor.SendHapticImpulse(hapticSettings.Intensity, hapticSettings.Duration);
 		}
 
 		#endregion
