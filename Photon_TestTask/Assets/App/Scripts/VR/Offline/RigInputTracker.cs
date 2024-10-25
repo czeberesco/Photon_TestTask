@@ -8,9 +8,14 @@ namespace VR.Offline
 	{
 		#region Events
 
+		[SerializeField] private InputActionReference m_leftHandGripPressedInputActionReference;
 		[SerializeField] private InputActionReference m_leftHandGripInputActionReference;
+		[SerializeField] private InputActionReference m_leftHandTriggerPressedInputActionReference;
 		[SerializeField] private InputActionReference m_leftHandTriggerInputActionReference;
+
+		[SerializeField] private InputActionReference m_rightHandGripPressedInputActionReference;
 		[SerializeField] private InputActionReference m_rightHandGripInputActionReference;
+		[SerializeField] private InputActionReference m_rightHandTriggerPressedInputActionReference;
 		[SerializeField] private InputActionReference m_rightInputTriggerInputActionReference;
 
 		#endregion
@@ -41,13 +46,17 @@ namespace VR.Offline
 
 				LeftControllerInput = new ControllerInput
 				{
+					GripPressed = m_leftHandGripPressedInputActionReference.action.IsPressed(),
 					GripInputValue = m_leftHandGripInputActionReference.action.ReadValue<float>(),
+					TriggerPressed = m_leftHandTriggerPressedInputActionReference.action.IsPressed(),
 					TriggerInputValue = m_leftHandTriggerInputActionReference.action.ReadValue<float>()
 				},
 
 				RightControllerInput = new ControllerInput
 				{
+					GripPressed = m_rightHandGripPressedInputActionReference.action.IsPressed(),
 					GripInputValue = m_rightHandGripInputActionReference.action.ReadValue<float>(),
+					TriggerPressed = m_rightHandTriggerPressedInputActionReference.action.IsPressed(),
 					TriggerInputValue = m_rightInputTriggerInputActionReference.action.ReadValue<float>()
 				}
 			};

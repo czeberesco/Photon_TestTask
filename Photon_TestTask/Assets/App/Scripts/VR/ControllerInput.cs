@@ -10,6 +10,8 @@ namespace VR
 
 		public float GripInputValue;
 		public float TriggerInputValue;
+		public bool GripPressed;
+		public bool TriggerPressed;
 
 		#endregion
 	}
