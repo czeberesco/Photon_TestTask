@@ -94,8 +94,10 @@ MonoBehaviour:
   - {fileID: 985866255088033289}
   - {fileID: 1475379243684529569}
   - {fileID: 1355793519448724057}
+  - {fileID: 5360075566508853398}
   - {fileID: 1775409959564082560}
   - {fileID: 4542823634251614182}
+  - {fileID: 8517229760095072168}
 --- !u!114 &3027030541168750620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +274,7 @@ GameObject:
   - component: {fileID: 1480820489602340}
   - component: {fileID: 1775409959564082560}
   - component: {fileID: 4542823634251614182}
+  - component: {fileID: 8517229760095072168}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -323,7 +326,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c88aa2bbe124e6fa1c0f16fbcf85b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_side: 3
   m_handView: {fileID: 2196961006018203015}
+  m_networkGrabber: {fileID: 8517229760095072168}
+--- !u!114 &8517229760095072168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028925516483449620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d27447c7e045029192f8772470cc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GrabInfo:
+    GrabbedObjectId:
+      Object:
+        Raw: 0
+      Behaviour: 0
+    LocalPositionOffset: {x: 0, y: 0, z: 0}
+    LocalRotationOffset: {x: 0, y: 0, z: 0, w: 0}
+    UngrabPosition: {x: 0, y: 0, z: 0}
+    UngrabRotation: {x: 0, y: 0, z: 0, w: 0}
+    UngrabVelocity: {x: 0, y: 0, z: 0}
+    UngrabAngularVelocity: {x: 0, y: 0, z: 0}
+  SupportedgrabbingKind: 1
+  m_networkTransform: {fileID: 1775409959564082560}
+  m_hand: {fileID: 4542823634251614182}
 --- !u!1 &5329228831016287634
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +416,7 @@ GameObject:
   - component: {fileID: 297656592281310852}
   - component: {fileID: 1475379243684529569}
   - component: {fileID: 1355793519448724057}
+  - component: {fileID: 5360075566508853398}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -436,7 +468,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c88aa2bbe124e6fa1c0f16fbcf85b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_side: 2
   m_handView: {fileID: 3361407734074055399}
+  m_networkGrabber: {fileID: 5360075566508853398}
+--- !u!114 &5360075566508853398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487065024229215978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d27447c7e045029192f8772470cc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GrabInfo:
+    GrabbedObjectId:
+      Object:
+        Raw: 0
+      Behaviour: 0
+    LocalPositionOffset: {x: 0, y: 0, z: 0}
+    LocalRotationOffset: {x: 0, y: 0, z: 0, w: 0}
+    UngrabPosition: {x: 0, y: 0, z: 0}
+    UngrabRotation: {x: 0, y: 0, z: 0, w: 0}
+    UngrabVelocity: {x: 0, y: 0, z: 0}
+    UngrabAngularVelocity: {x: 0, y: 0, z: 0}
+  SupportedgrabbingKind: 1
+  m_networkTransform: {fileID: 1475379243684529569}
+  m_hand: {fileID: 1355793519448724057}
 --- !u!1 &7057783583292893378
 GameObject:
   m_ObjectHideFlags: 0

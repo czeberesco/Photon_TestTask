@@ -16,10 +16,10 @@
 		{
 			#region Constants
 
-			public const int NETWORK_HAND = 10;
-			public const int NETWORK_GRABBER = 20;
-			public const int NETWORK_GRABBABLE = 30;
 			public const int NETWORK_RIG = 100;
+			public const int NETWORK_HAND = 110;
+			public const int NETWORK_GRABBER = 120;
+			public const int NETWORK_GRABBABLE = 130;
 
 			#endregion
 		}

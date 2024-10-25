@@ -1,5 +1,7 @@
 ﻿using Fusion;
 using UnityEngine;
+using VR.Interactions;
+using VR.Interactions.Network;
 
 namespace VR
 {
@@ -17,6 +19,8 @@ namespace VR
 		public Quaternion RightHandRotation;
 		public ControllerInput LeftControllerInput;
 		public ControllerInput RightControllerInput;
+		public NetworkGrabInfo LeftNetworkGrabInfo;
+		public NetworkGrabInfo RightNetworkGrabInfo;
 
 		#endregion
 	}

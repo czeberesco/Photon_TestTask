@@ -8,10 +8,21 @@ namespace VR.Interactions.Interactors
 	{
 		#region Properties
 
-		public override Vector3 Velocity => m_rigidbody.velocity;
+		public override Vector3 Velocity => Rigidbody.velocity;
 
-		public override Vector3 AngularVelocity => m_rigidbody.angularVelocity;
-		public bool IsGrabbed => m_currentInteractor != null;
+		public override Vector3 AngularVelocity => Rigidbody.angularVelocity;
+
+		public bool IsGrabbed
+		{
+			get => m_currentInteractor != null;
+			set => m_isGrabbed = value;
+		}
+
+		public PIDState PID => m_pid;
+
+		public EInteractablePhysicsFollowMode PhysicsFollowMode => m_physicsFollowMode;
+
+		public Rigidbody Rigidbody => m_rigidbody;
 
 		#endregion
 
@@ -33,7 +44,7 @@ namespace VR.Interactions.Interactors
 		{
 			base.Awake();
 
-			m_rigidbody.isKinematic = false;
+			Rigidbody.isKinematic = false;
 		}
 
 		#endregion
@@ -95,11 +106,11 @@ namespace VR.Interactions.Interactors
 
 		public virtual void Follow(Transform followedTransform, float elapsedTime, bool isColliding)
 		{
-			if (m_physicsFollowMode == EInteractablePhysicsFollowMode.PID)
+			if (PhysicsFollowMode == EInteractablePhysicsFollowMode.PID)
 			{
 				PIDFollow(followedTransform, elapsedTime, isColliding);
 			}
-			else if (m_physicsFollowMode == EInteractablePhysicsFollowMode.Velocity)
+			else if (PhysicsFollowMode == EInteractablePhysicsFollowMode.Velocity)
 			{
 				VelocityFollow(followedTransform, elapsedTime);
 			}
@@ -110,7 +121,7 @@ namespace VR.Interactions.Interactors
 			Vector3 targetPosition = followedTransform.TransformPoint(m_localPositionOffset);
 			Quaternion targetRotation = followedTransform.rotation * m_localRotationOffset;
 
-			Vector3 error = targetPosition - m_rigidbody.position;
+			Vector3 error = targetPosition - Rigidbody.position;
 			bool ignoreIntegration = m_ignorePidIntegrationWhileColliding && isColliding;
 
 			if (ignoreIntegration)
@@ -118,23 +129,23 @@ namespace VR.Interactions.Interactors
 				m_pid.ErrorIntegration = Vector3.zero;
 			}
 
-			Vector3 command = m_pid.UpdateCommand(error, elapsedTime, ignoreIntegration);
+			Vector3 command = PID.UpdateCommand(error, elapsedTime, ignoreIntegration);
 			Vector3 impulse = Vector3.ClampMagnitude(m_commandScale * command, m_maxCommandMagnitude);
-			m_rigidbody.AddForce(impulse, ForceMode.Impulse);
-			m_rigidbody.angularVelocity = VelocityExtension.AngularVelocityChange(m_rigidbody.transform.rotation, targetRotation, elapsedTime);
+			Rigidbody.AddForce(impulse, ForceMode.Impulse);
+			Rigidbody.angularVelocity = VelocityExtension.AngularVelocityChange(Rigidbody.transform.rotation, targetRotation, elapsedTime);
 		}
 
 		public virtual void VelocityFollow(Transform followedTransform, float elapsedTime)
 		{
 			// Compute the requested velocity to joined target position during a Runner.DeltaTime
-			m_rigidbody.VelocityFollow(followedTransform, m_localPositionOffset, m_localRotationOffset, elapsedTime);
+			Rigidbody.VelocityFollow(followedTransform, m_localPositionOffset, m_localRotationOffset, elapsedTime);
 
 			// To avoid a too aggressive move, we attenuate and limit a bit the expected velocity
-			Vector3 velocity = m_rigidbody.velocity;
+			Vector3 velocity = Rigidbody.velocity;
 
 			velocity *= m_followVelocityAttenuation; // followVelocityAttenuation = 0.5F by default
-			m_rigidbody.velocity = velocity;
-			m_rigidbody.velocity = Vector3.ClampMagnitude(velocity, m_maxVelocity); // maxVelocity = 10f by default
+			Rigidbody.velocity = velocity;
+			Rigidbody.velocity = Vector3.ClampMagnitude(velocity, m_maxVelocity); // maxVelocity = 10f by default
 		}
 
 		#endregion

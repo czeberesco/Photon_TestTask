@@ -37,6 +37,9 @@ namespace VR.Network
 
 			m_leftHand.SetControllerInput(rigInput.LeftControllerInput);
 			m_rightHand.SetControllerInput(rigInput.RightControllerInput);
+
+			m_leftHand.SetGrabInfo(rigInput.LeftNetworkGrabInfo);
+			m_rightHand.SetGrabInfo(rigInput.RightNetworkGrabInfo);
 		}
 
 		#endregion

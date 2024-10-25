@@ -2,6 +2,8 @@
 using Fusion;
 using UnityEngine;
 using Utils;
+using VR.Enums;
+using VR.Interactions.Network;
 using VR.Views;
 using Zenject;
 
@@ -12,13 +14,17 @@ namespace VR.Network
 	{
 		#region Properties
 
+		public ERigPart Side => m_side;
+
 		[Networked] private ControllerInput ControllerInput { get; set; }
 
 		#endregion
 
 		#region SerializeFields
 
+		[SerializeField] private ERigPart m_side;
 		[SerializeField] private HandView m_handView;
+		[SerializeField] private NetworkGrabber m_networkGrabber;
 
 		#endregion
 
@@ -39,6 +45,14 @@ namespace VR.Network
 			}
 
 			m_handView.UpdateHandViewInput(controllerInput);
+		}
+
+		public void SetGrabInfo(NetworkGrabInfo networkGrabInfo)
+		{
+			if (Object.HasInputAuthority && m_networkRunnerProvider.Runner.IsServer)
+			{
+				m_networkGrabber.GrabInfo = networkGrabInfo;
+			}
 		}
 
 		public override void Spawned()

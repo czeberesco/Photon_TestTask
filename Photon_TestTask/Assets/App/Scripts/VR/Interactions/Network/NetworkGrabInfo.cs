@@ -2,7 +2,7 @@
 using Fusion;
 using UnityEngine;
 
-namespace VR.Interactions
+namespace VR.Interactions.Network
 {
 	[Serializable]
 	public struct NetworkGrabInfo : INetworkStruct

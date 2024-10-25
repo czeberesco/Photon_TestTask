@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+﻿using Fusion;
+using UnityEngine;
 using Utils;
-using VR.Interactions;
-using VR.Interactions.Network;
 using VR.Network;
 
-namespace Fusion.XR.Host.Grabbing
+namespace VR.Interactions.Network
 {
     /**
 	 * Allows a NetworkHand to grab NetworkGrabbable objects
@@ -15,6 +14,8 @@ namespace Fusion.XR.Host.Grabbing
 		#region Properties
 
 		[Networked] public NetworkGrabInfo GrabInfo { get; set; }
+
+		public NetworkHand Hand => m_hand;
 
 		#endregion
 
@@ -34,13 +35,12 @@ namespace Fusion.XR.Host.Grabbing
 		#region PrivateFields
 
 		private NetworkGrabbable m_grabbedObject;
-
 		private ChangeDetector m_changeDetector;
 
 		private bool m_isSimulated;
 
-		private NetworkBehaviourId lastGrabbedObjectId = NetworkBehaviourId.None;
-		private NetworkGrabbable lastGrabbedObject;
+		private NetworkBehaviourId m_lastGrabbedObjectId = NetworkBehaviourId.None;
+		private NetworkGrabbable m_lastGrabbedObject;
 
 		#endregion
 
@@ -82,17 +82,17 @@ namespace Fusion.XR.Host.Grabbing
 			{
 				bool isGrabbing = GrabInfo.GrabbedObjectId != NetworkBehaviourId.None;
 
-				if (lastGrabbedObjectId != GrabInfo.GrabbedObjectId)
+				if (m_lastGrabbedObjectId != GrabInfo.GrabbedObjectId)
 				{
-					lastGrabbedObject = null;
+					m_lastGrabbedObject = null;
 
 					if (isGrabbing && Object.Runner.TryFindBehaviour(GrabInfo.GrabbedObjectId, out NetworkGrabbable grabbedObject))
 					{
-						lastGrabbedObject = grabbedObject;
+						m_lastGrabbedObject = grabbedObject;
 					}
 				}
 
-				if (m_isSimulated == false && isGrabbing && lastGrabbedObject && lastGrabbedObject is NetworkPhysicsGrabbable)
+				if (m_isSimulated == false && isGrabbing && m_lastGrabbedObject && m_lastGrabbedObject is NetworkPhysicsGrabbable)
 				{
 					// The hands need to be simulated to be at the appropriate position during FUN when a grabbable follow them (physics grabbable are fully simulated)
 					m_isSimulated = true;

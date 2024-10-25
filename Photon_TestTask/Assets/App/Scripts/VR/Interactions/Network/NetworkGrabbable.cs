@@ -1,10 +1,9 @@
 ﻿using Fusion;
-using Fusion.XR.Host.Grabbing;
 using UnityEngine;
 using UnityEngine.Events;
 using Utils;
 
-namespace VR.Interactions
+namespace VR.Interactions.Network
 {
 	[DefaultExecutionOrder(R.ExecutionOrder.NETWORK_GRABBABLE)]
 	public abstract class NetworkGrabbable : NetworkBehaviour

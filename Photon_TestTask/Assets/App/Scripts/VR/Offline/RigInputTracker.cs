@@ -1,6 +1,7 @@
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using VR.Interactions;
 
 namespace VR.Offline
 {
@@ -26,6 +27,8 @@ namespace VR.Offline
 		[SerializeField] private Transform m_head;
 		[SerializeField] private Transform m_leftHand;
 		[SerializeField] private Transform m_rightHand;
+		[SerializeField] private NetworkGrabInfoProvider m_leftHandNetworkGrabInfoProvider;
+		[SerializeField] private NetworkGrabInfoProvider m_rightHandNetworkGrabInfoProvider;
 
 		#endregion
 
@@ -35,15 +38,6 @@ namespace VR.Offline
 		{
 			return new RigInput
 			{
-				PlayAreaPosition = m_playArea.position,
-				PlayAreaRotation = m_playArea.rotation,
-				HeadPosition = m_head.position,
-				HeadRotation = m_head.rotation,
-				LeftHandPosition = m_leftHand.position,
-				LeftHandRotation = m_leftHand.rotation,
-				RightHandPosition = m_rightHand.position,
-				RightHandRotation = m_rightHand.rotation,
-
 				LeftControllerInput = new ControllerInput
 				{
 					GripPressed = m_leftHandGripPressedInputActionReference.action.IsPressed(),
@@ -58,7 +52,18 @@ namespace VR.Offline
 					GripInputValue = m_rightHandGripInputActionReference.action.ReadValue<float>(),
 					TriggerPressed = m_rightHandTriggerPressedInputActionReference.action.IsPressed(),
 					TriggerInputValue = m_rightInputTriggerInputActionReference.action.ReadValue<float>()
-				}
+				},
+				
+				PlayAreaPosition = m_playArea.position,
+				PlayAreaRotation = m_playArea.rotation,
+				HeadPosition = m_head.position,
+				HeadRotation = m_head.rotation,
+				LeftHandPosition = m_leftHand.position,
+				LeftHandRotation = m_leftHand.rotation,
+				RightHandPosition = m_rightHand.position,
+				RightHandRotation = m_rightHand.rotation,
+				LeftNetworkGrabInfo = m_leftHandNetworkGrabInfoProvider.GrabInfo,
+				RightNetworkGrabInfo = m_rightHandNetworkGrabInfoProvider.GrabInfo
 			};
 		}
 

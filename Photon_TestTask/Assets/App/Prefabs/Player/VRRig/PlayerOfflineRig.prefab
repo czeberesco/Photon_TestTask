@@ -251,6 +251,8 @@ MonoBehaviour:
   m_head: {fileID: 2617647737322453782}
   m_leftHand: {fileID: 3180536362440900284}
   m_rightHand: {fileID: 8870547055614368618}
+  m_leftHandNetworkGrabInfoProvider: {fileID: 7437255183640212897}
+  m_rightHandNetworkGrabInfoProvider: {fileID: 1954498929767245321}
 --- !u!114 &3565252945571922905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,6 +851,7 @@ GameObject:
   - component: {fileID: 2241285544010287458}
   - component: {fileID: 3050860261544419986}
   - component: {fileID: 3337135897081141080}
+  - component: {fileID: 7437255183640212897}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -1011,6 +1014,19 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &7437255183640212897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703577588529313132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b5354c9c1f4c81b10188b10a764314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactor: {fileID: 4438138188804758540}
 --- !u!1 &6595200664067625145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,6 +1124,7 @@ GameObject:
   - component: {fileID: 7364858737541522569}
   - component: {fileID: 7270160479170641001}
   - component: {fileID: 1879777806341315667}
+  - component: {fileID: 1954498929767245321}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -1270,6 +1287,19 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &1954498929767245321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6963107635247700598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b5354c9c1f4c81b10188b10a764314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_interactor: {fileID: 7056536053174667571}
 --- !u!1 &7072079135858662777
 GameObject:
   m_ObjectHideFlags: 0

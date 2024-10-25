@@ -27,7 +27,7 @@ grabbableTransform->Rotation = targetRotation;
 	}
 
 	[Serializable]
-	public struct PIDState
+	public class PIDState
 	{
 		#region PublicFields
 

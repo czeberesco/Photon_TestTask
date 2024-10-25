@@ -2,6 +2,7 @@
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using VR.Interactions.Network;
 
 namespace VR.Interactions.Interactors
 {
@@ -12,6 +13,23 @@ namespace VR.Interactions.Interactors
 		public abstract Vector3 Velocity { get; }
 
 		public abstract Vector3 AngularVelocity { get; }
+
+		public Vector3 LocalPositionOffset
+		{
+			get => m_localPositionOffset;
+			set => m_localPositionOffset = value;
+		}
+
+		public Quaternion LocalRotationOffset
+		{
+			get => m_localRotationOffset;
+			set => m_localRotationOffset = value;
+		}
+
+		public Vector3 UngrabPosition => m_ungrabPosition;
+		public Quaternion UngrabRotation => m_ungrabRotation;
+		public Vector3 UngrabVelocity => m_ungrabVelocity;
+		public Vector3 UngrabAngularVelocity => m_ungrabAngularVelocity;
 
 		#endregion
 
@@ -25,6 +43,7 @@ namespace VR.Interactions.Interactors
 
 		protected IXRSelectInteractor m_currentInteractor;
 		protected Vector3 m_localPositionOffset;
+
 		protected Quaternion m_localRotationOffset;
 		protected Vector3 m_ungrabPosition;
 		protected Quaternion m_ungrabRotation;
