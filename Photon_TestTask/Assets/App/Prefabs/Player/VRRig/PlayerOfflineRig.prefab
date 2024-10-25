@@ -96,7 +96,7 @@ MonoBehaviour:
   m_TurnAmount: 45
   m_DebounceTime: 0.5
   m_EnableTurnLeftRight: 1
-  m_EnableTurnAround: 1
+  m_EnableTurnAround: 0
   m_DelayTime: 0
   m_LeftHandTurnInput:
     m_InputSourceMode: 2
@@ -806,8 +806,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5294181961688054409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.125, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1638,6 +1638,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3180536362440900284}
     m_Modifications:
+    - target: {fileID: 1255647619390271626, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
+      propertyPath: m_CastDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442306273320644280, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2442306273320644280, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -1776,6 +1784,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4808866746549998793, guid: b200f6587d118224eba8467281481800, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808866746549998793, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 6228925528996823589}
@@ -1787,6 +1799,10 @@ PrefabInstance:
       propertyPath: m_HapticImpulsePlayer
       value: 
       objectReference: {fileID: 7270160479170641001}
+    - target: {fileID: 8229381180640938747, guid: b200f6587d118224eba8467281481800, type: 3}
+      propertyPath: m_CastDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
