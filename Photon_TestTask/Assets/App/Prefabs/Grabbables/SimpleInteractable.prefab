@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3198982344417684796}
   - component: {fileID: 4054190064784441585}
   - component: {fileID: 247478190429923665}
-  - component: {fileID: 2146540587504791271}
+  - component: {fileID: 8759611778133998451}
   m_Layer: 0
   m_Name: SimpleInteractable
   m_TagString: Untagged
@@ -106,7 +106,7 @@ MonoBehaviour:
     Position: 0.01
     Rotation: 0.01
     Scale: 0.01
---- !u!114 &2146540587504791271
+--- !u!114 &8759611778133998451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 149989439541085749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 847b0bdea527431b88368c3bc0126cce, type: 3}
+  m_Script: {fileID: 11500000, guid: 46f9ae7fce8845b18b2c7d7e0ad11e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -179,6 +179,22 @@ MonoBehaviour:
   m_StartingSelectFilters:
   - {fileID: 1935104202524889076}
   m_StartingInteractionStrengthFilters: []
+  m_networkGrabbable: {fileID: 0}
+  m_rigidbody: {fileID: 4054190064784441585}
+  m_followVelocityAttenuation: 0.5
+  m_maxVelocity: 10
+  m_physicsFollowMode: 1
+  m_pid:
+    PidSettings:
+      ProportionalGain: 0.75
+      IntegralGain: 0.01
+      DerivativeGain: 0.12
+      MaxIntegrationMagnitude: 10
+    ErrorIntegration: {x: 0, y: 0, z: 0}
+    LastError: {x: 0, y: 0, z: 0}
+  m_commandScale: 1.5
+  m_maxCommandMagnitude: 100
+  m_ignorePidIntegrationWhileColliding: 1
 --- !u!1 &2675621238792349047
 GameObject:
   m_ObjectHideFlags: 0
