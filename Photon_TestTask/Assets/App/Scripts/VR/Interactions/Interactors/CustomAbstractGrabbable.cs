@@ -54,6 +54,16 @@ namespace VR.Interactions.Interactors
 
 		#endregion
 
+		#region PublicMethods
+
+		public void UpdateOffsetDataWithInteractor(IXRSelectInteractor interactor)
+		{
+			m_localPositionOffset = interactor.transform.InverseTransformPoint(transform.position);
+			m_localRotationOffset = Quaternion.Inverse(interactor.transform.rotation) * transform.rotation;
+		}
+
+		#endregion
+
 		#region ProtectedMethods
 
 		protected override void OnSelectEntered(SelectEnterEventArgs selectEnterEventArgs)
@@ -65,8 +75,7 @@ namespace VR.Interactions.Interactors
 
 			IXRSelectInteractor interactor = selectEnterEventArgs.interactorObject;
 
-			m_localPositionOffset = interactor.transform.InverseTransformPoint(transform.position);
-			m_localRotationOffset = Quaternion.Inverse(interactor.transform.rotation) * transform.rotation;
+			UpdateOffsetDataWithInteractor(interactor);
 			m_currentInteractor = interactor;
 			m_isGrabbed = true;
 		}

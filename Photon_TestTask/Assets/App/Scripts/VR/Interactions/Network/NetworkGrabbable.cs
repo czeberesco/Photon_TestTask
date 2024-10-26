@@ -37,7 +37,7 @@ namespace VR.Interactions.Network
 
 		public void DidUngrab(NetworkGrabber lastGrabber)
 		{
-			if (Grabbed != null)
+			if (Ungrabbed != null)
 			{
 				Ungrabbed.Invoke();
 			}

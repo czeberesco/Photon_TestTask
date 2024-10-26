@@ -3313,6 +3313,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Debug",
+            "id": "288dbf64-0dc7-4f5f-8d23-d38d05a79bd1",
+            "actions": [
+                {
+                    "name": "Debug Toggle Canvas Render Mode",
+                    "type": "Button",
+                    "id": "163eb2eb-d3fa-4713-b7b3-e06099100776",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "261dac37-d145-4e72-b883-8b024900914d",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug Toggle Canvas Render Mode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

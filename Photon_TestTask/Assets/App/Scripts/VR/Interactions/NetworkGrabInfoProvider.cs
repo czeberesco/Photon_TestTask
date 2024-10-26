@@ -65,6 +65,8 @@ namespace VR.Interactions
 				return;
 			}
 
+			grabbable.UpdateOffsetDataWithInteractor(m_interactor);
+
 			m_grabInfo.LocalPositionOffset = grabbable.LocalPositionOffset;
 			m_grabInfo.LocalRotationOffset = grabbable.LocalRotationOffset;
 

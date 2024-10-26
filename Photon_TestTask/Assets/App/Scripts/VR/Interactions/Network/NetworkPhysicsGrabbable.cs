@@ -447,18 +447,18 @@ namespace VR.Interactions.Network
 			}
 
 			// We don't place the hand on the object while we are waiting to receive the input authority as the timeframe transitioning might lead to erroneous hand repositioning
-			if (IsGrabbed && m_willReceiveInputAuthority == false)
-			{
-				Transform handVisual = CurrentGrabber.Hand.transform;
-				Transform grabbableVisual = m_networkRigidbody.InterpolationTarget.transform;
-
-				// On remote user, we want the hand to stay glued to the object, even though the hand and the grabbed object may have various interpolation
-				handVisual.rotation = grabbableVisual.rotation * Quaternion.Inverse(m_grabbable.LocalRotationOffset);
-				handVisual.position = grabbableVisual.position - (handVisual.TransformPoint(m_grabbable.LocalPositionOffset) - handVisual.position);
-
-				// Add pseudo haptic feedback if needed
-				ApplyPseudoHapticFeedback();
-			}
+			// if (IsGrabbed && m_willReceiveInputAuthority == false)
+			// {
+			// 	Transform handVisual = CurrentGrabber.Hand.transform;
+			// 	Transform grabbableVisual = m_networkRigidbody.InterpolationTarget.transform;
+			//
+			// 	// On remote user, we want the hand to stay glued to the object, even though the hand and the grabbed object may have various interpolation
+			// 	handVisual.rotation = grabbableVisual.rotation * Quaternion.Inverse(m_grabbable.LocalRotationOffset);
+			// 	handVisual.position = grabbableVisual.position - (handVisual.TransformPoint(m_grabbable.LocalPositionOffset) - handVisual.position);
+			//
+			// 	// Add pseudo haptic feedback if needed
+			// 	ApplyPseudoHapticFeedback();
+			// }
 		}
 
 		#endregion

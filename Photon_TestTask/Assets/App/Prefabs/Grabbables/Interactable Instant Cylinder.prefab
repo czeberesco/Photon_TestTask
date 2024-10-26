@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1743060682079725541}
   - component: {fileID: 4228111016199555961}
   - component: {fileID: 5445497202779946114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Interactable Instant Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1616079201462576650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Filters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4883605517418594707}
   - component: {fileID: 6787553252198077688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: IsSimulationTickFilter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 1556386732800124439}
   - component: {fileID: 2743750953632139730}
   - component: {fileID: 5840658302268122607}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,6 +405,14 @@ PrefabInstance:
     - target: {fileID: 3774509235512974894, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_Name
       value: Highlight Interaction Affordance
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774509235512974894, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896237787779704601, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5258331117553129771, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_RootOrder

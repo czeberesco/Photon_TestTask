@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 247478190429923665}
   - component: {fileID: 8759611778133998451}
   - component: {fileID: 2020641695928119240}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SimpleInteractable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4713756756728700176}
   - component: {fileID: 1935104202524889076}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: IsSimulationTickFilter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1745984231339758332}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7181465189780171121}
   - component: {fileID: 7855885865320441292}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1467274235567902051}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Filters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 1897989586031896656}
   - component: {fileID: 2338105368868227708}
   - component: {fileID: 6070178422456903970}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,6 +479,14 @@ PrefabInstance:
     - target: {fileID: 3774509235512974894, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_Name
       value: Highlight Interaction Affordance
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774509235512974894, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896237787779704601, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5258331117553129771, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_RootOrder

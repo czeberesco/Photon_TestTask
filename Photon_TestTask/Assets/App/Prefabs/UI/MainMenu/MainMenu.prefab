@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 151677974784030502}
   - component: {fileID: 1506148733144623639}
   - component: {fileID: 7411001377606510083}
+  - component: {fileID: 7584792473324002915}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -140,6 +141,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32
   m_RaycastTriggerInteraction: 1
+--- !u!114 &7584792473324002915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692572647392829908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52eb6a3779f2524599c2ce1fa1cf079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_toggleUIRenderModeActionReference: {fileID: -2242282366045851608, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_canvas: {fileID: 4065587609065526907}
 --- !u!1001 &4101529514729329266
 PrefabInstance:
   m_ObjectHideFlags: 0

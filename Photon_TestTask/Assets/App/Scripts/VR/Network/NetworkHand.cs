@@ -49,7 +49,7 @@ namespace VR.Network
 
 		public void SetGrabInfo(NetworkGrabInfo networkGrabInfo)
 		{
-			if (Object.HasInputAuthority && m_networkRunnerProvider.Runner.IsServer)
+			if (Object.HasStateAuthority)
 			{
 				m_networkGrabber.GrabInfo = networkGrabInfo;
 			}

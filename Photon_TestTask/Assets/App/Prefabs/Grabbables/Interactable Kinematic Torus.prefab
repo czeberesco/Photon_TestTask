@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1515085447138848325}
   - component: {fileID: 630247565341419463}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: IsSimulationTickFilter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2401048622681679621}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Filters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5816530709929731121}
   - component: {fileID: 2705990975427406902}
   - component: {fileID: 1501639917571930507}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 4718571851775072524}
   - component: {fileID: 6661690902832436510}
   - component: {fileID: 2756393373898374486}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Interactable Kinematic Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,6 +403,14 @@ PrefabInstance:
     - target: {fileID: 3774509235512974894, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_Name
       value: Highlight Interaction Affordance
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774509235512974894, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896237787779704601, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5258331117553129771, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_RootOrder

@@ -5,10 +5,10 @@ using VR.Network;
 
 namespace VR.Interactions.Network
 {
-    /**
+	/**
 	 * Allows a NetworkHand to grab NetworkGrabbable objects
 	 */
-    [DefaultExecutionOrder(R.ExecutionOrder.NETWORK_GRABBER)]
+	[DefaultExecutionOrder(R.ExecutionOrder.NETWORK_GRABBER)]
 	public class NetworkGrabber : NetworkBehaviour
 	{
 		#region Properties
@@ -27,7 +27,6 @@ namespace VR.Interactions.Network
 
 		#region SerializeFields
 
-		[SerializeField] private NetworkTransform m_networkTransform;
 		[SerializeField] private NetworkHand m_hand;
 
 		#endregion
@@ -113,6 +112,7 @@ namespace VR.Interactions.Network
 
 		private void HandleGrabInfoChange(NetworkGrabInfo newGrabInfo)
 		{
+
 			if (m_grabbedObject != null)
 			{
 				m_grabbedObject.Ungrab(this, newGrabInfo);
