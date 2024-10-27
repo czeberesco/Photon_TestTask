@@ -1299,12 +1299,12 @@
                 },
                 {
                     "name": "Snap Turn",
-                    "type": "Value",
-                    "id": "8c14e969-a054-4f12-840c-4e0bd85173d9",
-                    "expectedControlType": "Vector2",
+                    "type": "Button",
+                    "id": "8f0c15fe-2217-43a5-ac29-ef171a20f878",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Move",
@@ -1382,15 +1382,37 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "a46b49d0-0754-4dac-a9a5-a822e10751f2",
-                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
-                    "interactions": "Sector(directions=12,sweepBehavior=1),Sector(directions=2,sweepBehavior=2)",
+                    "name": "1D Axis",
+                    "id": "577e83fe-2cc7-4f46-85dc-1a6ce1294e68",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "Clamp(min=-0.5,max=0.5)",
+                    "groups": "",
+                    "action": "Snap Turn",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Negative",
+                    "id": "9460946b-217a-4190-ab27-2c4ab426c2a0",
+                    "path": "<XRController>{LeftHand}/thumbstickDpadLeft",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Snap Turn",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Positive",
+                    "id": "975e57fa-a81f-4042-af6c-a812d694254e",
+                    "path": "<XRController>{LeftHand}/thumbstickDpadRight",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Snap Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -2370,12 +2392,12 @@
                 },
                 {
                     "name": "Snap Turn",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "44441ad6-5762-466d-ad54-aa44fcd61a5c",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Move",
@@ -2453,15 +2475,70 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "31d838df-4d4e-4c16-a373-b9c07d9d2e2a",
-                    "path": "<XRController>{RightHand}/{Primary2DAxis}",
-                    "interactions": "Sector(directions=12,sweepBehavior=1),Sector(directions=2,sweepBehavior=2)",
+                    "name": "1D Axis",
+                    "id": "1d75b5d9-fe6e-41b7-945c-e75f5531c2ca",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Snap Turn",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "31f55060-cd7b-412e-9526-7431fc091520",
+                    "path": "<XRController>{RightHand}/thumbstickDpadLeft",
+                    "interactions": "",
+                    "processors": "AxisDeadzone(min=0.6)",
+                    "groups": "",
+                    "action": "Snap Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "ff295c24-8c0e-4f89-9e22-6bb94a2d2d12",
+                    "path": "<XRController>{RightHand}/thumbstickDpadRight",
+                    "interactions": "",
+                    "processors": "AxisDeadzone(min=0.6)",
+                    "groups": "",
+                    "action": "Snap Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "487e888a-8ad0-49eb-bf5f-2a526637e00b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "Clamp(min=-0.1,max=0.1)",
+                    "groups": "",
+                    "action": "Snap Turn",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "f827fbec-5a7c-4c20-96ca-83106bf5c544",
+                    "path": "<OculusTouchController>{RightHand}/thumbstick/left",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Snap Turn",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "fb4a4464-d8e7-4d5c-90b1-cd898fb76021",
+                    "path": "<OculusTouchController>{RightHand}/thumbstick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Snap Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
