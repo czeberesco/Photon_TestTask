@@ -53,7 +53,7 @@ namespace VR.Interactions.Network
 		#region PrivateFields
 
 		private ChangeDetector m_changeDetector;
-		private bool m_isPseudoHapticDisplayed = false;
+		// private bool m_isPseudoHapticDisplayed = false;
 		private List<Localization> m_lastLocalizations = new();
 		private bool m_willReceiveInputAuthority;
 		private ERigPart m_previousGrabbingSide = ERigPart.None;
