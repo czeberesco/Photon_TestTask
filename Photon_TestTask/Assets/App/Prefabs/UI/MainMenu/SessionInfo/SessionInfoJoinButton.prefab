@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5089651409041798017}
   - component: {fileID: 6487758578526688744}
   - component: {fileID: 504088509121100338}
-  - component: {fileID: 2626534248117677051}
+  - component: {fileID: 880470693924428395}
+  - component: {fileID: 4719770189866184616}
   m_Layer: 5
   m_Name: SessionInfoJoinButton
   m_TagString: Untagged
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &2626534248117677051
+--- !u!114 &880470693924428395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,10 +153,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 3787437448719578108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66dd5ac6ba224fe791f5a288e92fa4fb, type: 3}
+  m_Script: {fileID: 11500000, guid: cb86c6547f3444ecb6d97c5430737ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_button: {fileID: 6487758578526688744}
+--- !u!114 &4719770189866184616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3787437448719578108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933929b3005f40c280e2b53754ef8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pointerEnter:
+    Active: 1
+    Intensity: 0.3
+    Duration: 0.05
+  m_pointerExit:
+    Active: 1
+    Intensity: 0.15
+    Duration: 0.05
+  m_pointerDown:
+    Active: 1
+    Intensity: 0.6
+    Duration: 0.1
+  m_pointerUp:
+    Active: 0
+    Intensity: 0
+    Duration: 0
 --- !u!1 &9196387583416625922
 GameObject:
   m_ObjectHideFlags: 0

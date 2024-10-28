@@ -2512,7 +2512,7 @@
                     "id": "487e888a-8ad0-49eb-bf5f-2a526637e00b",
                     "path": "1DAxis",
                     "interactions": "",
-                    "processors": "Clamp(min=-0.1,max=0.1)",
+                    "processors": "",
                     "groups": "",
                     "action": "Snap Turn",
                     "isComposite": true,

@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_sessionNameLabel: {fileID: 6959852737772735026}
   m_playersCountInfo: {fileID: 4962154856571905015}
-  m_joinButton: {fileID: 4789284204233604011}
+  m_joinButton: {fileID: 7655460819635391035}
 --- !u!1 &6488927122715975050
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,14 +533,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8727788293256010297, guid: 42f0ebf1ed257dc46b2b62bfced4dbac, type: 3}
   m_PrefabInstance: {fileID: 7351464900025651280}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4789284204233604011 stripped
+--- !u!114 &7655460819635391035 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2626534248117677051, guid: 42f0ebf1ed257dc46b2b62bfced4dbac, type: 3}
+  m_CorrespondingSourceObject: {fileID: 880470693924428395, guid: 42f0ebf1ed257dc46b2b62bfced4dbac, type: 3}
   m_PrefabInstance: {fileID: 7351464900025651280}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66dd5ac6ba224fe791f5a288e92fa4fb, type: 3}
+  m_Script: {fileID: 11500000, guid: cb86c6547f3444ecb6d97c5430737ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

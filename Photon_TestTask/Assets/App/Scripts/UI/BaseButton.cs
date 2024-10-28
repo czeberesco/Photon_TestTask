@@ -1,10 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-	public class ButtonBase : MonoBehaviour
+	public class BaseButton : MonoBehaviour
 	{
+		#region Events
+
+		public event Action Clicked;
+
+		#endregion
+
 		#region SerializeFields
 
 		[SerializeField] private Button m_button;
@@ -29,15 +36,25 @@ namespace UI
 
 		protected virtual void RegisterToEvents()
 		{
-			m_button.onClick.AddListener(OnButtonClicked);
+			m_button.onClick.AddListener(OnClicked);
 		}
 
 		protected virtual void UnregisterFromEvents()
 		{
-			m_button.onClick.RemoveListener(OnButtonClicked);
+			m_button.onClick.RemoveListener(OnClicked);
 		}
 
-		protected virtual void OnButtonClicked() { }
+		protected virtual void OnClickedImpl() { }
+
+		#endregion
+
+		#region PrivateMethods
+
+		private void OnClicked()
+		{
+			OnClickedImpl();
+			Clicked?.Invoke();
+		}
 
 		#endregion
 	}

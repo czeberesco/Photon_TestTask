@@ -15,7 +15,7 @@
     "AllowClientServerModesInWebGL": false,
     "Simulation": {
         "InputDataWordCount": 0,
-        "ReplicationFeatures": 1,
+        "ReplicationFeatures": 0,
         "InputTransferMode": 0,
         "SimulationUpdateTimeMode": 0,
         "PlayerCount": 10,
@@ -27,7 +27,7 @@
         }
     },
     "Network": {
-        "ConnectionTimeout": 10.0,
+        "ConnectionTimeout": 60.0,
         "ConnectionShutdownTime": 1.0,
         "ReliableDataTransferModes": 3
     },

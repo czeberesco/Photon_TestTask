@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Core.Interfaces;
+using Fusion;
 using UnityEngine;
 using Zenject;
 
@@ -16,30 +16,14 @@ namespace UI.Lobby
 
 		#region PrivateFields
 
-		[Inject] private IGameLobbyHandler m_gameLobbyHandler;
 		[Inject] private SessionInfoView.Factory m_sessionInfoViewFactory;
 		private List<SessionInfoView> m_currentSessionViews = new();
 
 		#endregion
 
-		#region UnityMethods
+		#region PublicMethods
 
-		private void OnEnable()
-		{
-			RegisterToEvents();
-			OnSessionListUpdated(m_gameLobbyHandler.GetCurrentSessions());
-		}
-
-		private void OnDisable()
-		{
-			UnregisterFromEvents();
-		}
-
-		#endregion
-
-		#region PrivateMethods
-
-		private void OnSessionListUpdated(List<Fusion.SessionInfo> sessionInfos)
+		public void RefreshSessionListView(List<SessionInfo> sessionInfos)
 		{
 			foreach (SessionInfoView sessionInfoView in m_currentSessionViews)
 			{
@@ -50,23 +34,13 @@ namespace UI.Lobby
 
 			m_noSessionsAvailableLabel.SetActive(sessionInfos.Count == 0);
 
-			foreach (Fusion.SessionInfo sessionInfo in sessionInfos)
+			foreach (SessionInfo sessionInfo in sessionInfos)
 			{
 				SessionInfoView sessionInfoView = m_sessionInfoViewFactory.Create();
 				sessionInfoView.transform.parent = m_sessionInfoViewsRoot;
 				sessionInfoView.Setup(sessionInfo);
 				m_currentSessionViews.Add(sessionInfoView);
 			}
-		}
-
-		private void RegisterToEvents()
-		{
-			m_gameLobbyHandler.SessionListUpdated += OnSessionListUpdated;
-		}
-
-		private void UnregisterFromEvents()
-		{
-			m_gameLobbyHandler.SessionListUpdated -= OnSessionListUpdated;
 		}
 
 		#endregion

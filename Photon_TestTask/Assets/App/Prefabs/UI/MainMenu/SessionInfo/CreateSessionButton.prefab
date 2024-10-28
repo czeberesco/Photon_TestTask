@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7935162446332280653}
   - component: {fileID: 6426684830974309625}
   - component: {fileID: 6714980298650840658}
-  - component: {fileID: 8613424732027148321}
+  - component: {fileID: 4450950750272492163}
   m_Layer: 5
   m_Name: CreateSessionButton
   m_TagString: Untagged
@@ -151,7 +151,7 @@ MonoBehaviour:
     Active: 0
     Intensity: 0
     Duration: 0
---- !u!114 &8613424732027148321
+--- !u!114 &4450950750272492163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1282464073435499912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d44b4eba87e84bd0b9b93bd7d4032eb3, type: 3}
+  m_Script: {fileID: 11500000, guid: cb86c6547f3444ecb6d97c5430737ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_button: {fileID: 6426684830974309625}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
