@@ -2,6 +2,7 @@
 using Core.Interfaces;
 using Data;
 using Fusion;
+using UI.Buttons;
 using UI.Lobby;
 using UnityEngine;
 using Zenject;
@@ -12,7 +13,7 @@ namespace UI.Pages.MainMenu
 	{
 		#region SerializeFields
 
-		[SerializeField] private BaseButton m_createSessionButton;
+		[SerializeField] private BaseButton m_hostSessionButton;
 		[SerializeField] private SessionInfosUIContainer m_sessionInfosUIContainer;
 
 		#endregion
@@ -42,7 +43,7 @@ namespace UI.Pages.MainMenu
 		{
 			base.RegisterToEvents();
 
-			m_createSessionButton.Clicked += OnCreateSessionButtonClicked;
+			m_hostSessionButton.Clicked += OnHostSessionButtonClicked;
 			m_gameLobbyHandler.SessionListUpdated += OnSessionListUpdated;
 		}
 
@@ -51,14 +52,14 @@ namespace UI.Pages.MainMenu
 			base.UnregisterFromEvents();
 
 			m_gameLobbyHandler.SessionListUpdated -= OnSessionListUpdated;
-			m_createSessionButton.Clicked -= OnCreateSessionButtonClicked;
+			m_hostSessionButton.Clicked -= OnHostSessionButtonClicked;
 		}
 
 		#endregion
 
 		#region PrivateMethods
 
-		private void OnCreateSessionButtonClicked()
+		private void OnHostSessionButtonClicked()
 		{
 			GameLevelData gameLevelData = m_gameLevelDataCollection.Collection[Random.Range(0, m_gameLevelDataCollection.Collection.Count)];
 			
