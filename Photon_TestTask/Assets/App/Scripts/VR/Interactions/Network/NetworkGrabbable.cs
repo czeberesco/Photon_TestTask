@@ -10,8 +10,8 @@ namespace VR.Interactions.Network
 	{
 		#region Properties
 
-		public virtual NetworkGrabber CurrentGrabber { get; set; }
-		public bool IsGrabbed => CurrentGrabber != null;
+		protected virtual NetworkGrabber CurrentGrabber { get; set; }
+		protected bool IsGrabbed => CurrentGrabber != null;
 
 		#endregion
 
@@ -27,20 +27,18 @@ namespace VR.Interactions.Network
 		public abstract void Grab(NetworkGrabber newGrabber, NetworkGrabInfo newGrabInfo);
 		public abstract void Ungrab(NetworkGrabber grabber, NetworkGrabInfo newGrabInfo);
 
-		public void DidGrab()
+		#endregion
+
+		#region ProtectedMethods
+
+		protected void DidGrab()
 		{
-			if (Grabbed != null)
-			{
-				Grabbed.Invoke(CurrentGrabber);
-			}
+			Grabbed?.Invoke(CurrentGrabber);
 		}
 
-		public void DidUngrab(NetworkGrabber lastGrabber)
+		protected void DidUngrab(NetworkGrabber lastGrabber)
 		{
-			if (Ungrabbed != null)
-			{
-				Ungrabbed.Invoke();
-			}
+			Ungrabbed?.Invoke();
 		}
 
 		#endregion

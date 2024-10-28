@@ -112,7 +112,6 @@ namespace VR.Interactions.Network
 
 		private void HandleGrabInfoChange(NetworkGrabInfo newGrabInfo)
 		{
-
 			if (m_grabbedObject != null)
 			{
 				m_grabbedObject.Ungrab(this, newGrabInfo);

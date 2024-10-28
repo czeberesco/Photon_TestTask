@@ -116,7 +116,7 @@ namespace VR.Interactions.Interactors
 			}
 		}
 
-		public virtual void PIDFollow(Transform followedTransform, float elapsedTime, bool isColliding)
+		protected virtual void PIDFollow(Transform followedTransform, float elapsedTime, bool isColliding)
 		{
 			Vector3 targetPosition = followedTransform.TransformPoint(m_localPositionOffset);
 			Quaternion targetRotation = followedTransform.rotation * m_localRotationOffset;
@@ -135,14 +135,13 @@ namespace VR.Interactions.Interactors
 			Rigidbody.angularVelocity = VelocityExtension.AngularVelocityChange(Rigidbody.transform.rotation, targetRotation, elapsedTime);
 		}
 
-		public virtual void VelocityFollow(Transform followedTransform, float elapsedTime)
+		protected virtual void VelocityFollow(Transform followedTransform, float elapsedTime)
 		{
 			// Compute the requested velocity to joined target position during a Runner.DeltaTime
 			Rigidbody.VelocityFollow(followedTransform, m_localPositionOffset, m_localRotationOffset, elapsedTime);
 
 			// To avoid a too aggressive move, we attenuate and limit a bit the expected velocity
 			Vector3 velocity = Rigidbody.velocity;
-
 			velocity *= m_followVelocityAttenuation; // followVelocityAttenuation = 0.5F by default
 			Rigidbody.velocity = velocity;
 			Rigidbody.velocity = Vector3.ClampMagnitude(velocity, m_maxVelocity); // maxVelocity = 10f by default

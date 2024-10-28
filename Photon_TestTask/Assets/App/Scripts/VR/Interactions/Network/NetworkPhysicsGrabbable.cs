@@ -15,7 +15,7 @@ namespace VR.Interactions.Network
 	{
 		#region Properties
 
-		public override NetworkGrabber CurrentGrabber
+		protected override NetworkGrabber CurrentGrabber
 		{
 			get
 			{
@@ -46,6 +46,7 @@ namespace VR.Interactions.Network
 
 		[SerializeField] private NetworkRigidbody3D m_networkRigidbody;
 		[SerializeField] private CustomPhysicsGrabbable m_grabbable;
+		[SerializeField] private bool m_displayInRemoteTimeFrameWhenGrabbed = true;
 
 		#endregion
 
@@ -53,7 +54,6 @@ namespace VR.Interactions.Network
 
 		private ChangeDetector m_changeDetector;
 		private bool m_isPseudoHapticDisplayed = false;
-		private bool m_displayInRemoteTimeFrameWhenGrabbed = true;
 		private List<Localization> m_lastLocalizations = new();
 		private bool m_willReceiveInputAuthority;
 		private ERigPart m_previousGrabbingSide = ERigPart.None;
@@ -178,7 +178,7 @@ namespace VR.Interactions.Network
 			}
 		}
 
-		public virtual void Follow(Transform followedTransform, float elapsedTime, bool isColliding)
+		private void Follow(Transform followedTransform, float elapsedTime, bool isColliding)
 		{
 			if (m_grabbable.PhysicsFollowMode == CustomPhysicsGrabbable.EInteractablePhysicsFollowMode.PID)
 			{
@@ -195,24 +195,14 @@ namespace VR.Interactions.Network
 			}
 		}
 
-		public NetworkGrabber GrabberForSideAndPlayer(PlayerRef player, ERigPart side)
+		private NetworkGrabber GrabberForSideAndPlayer(PlayerRef player, ERigPart side)
 		{
-			if (m_cachedGrabbers.ContainsKey((player, side)))
-			{
-				return m_cachedGrabbers[(player, side)];
-			}
-
-			return null;
+			return m_cachedGrabbers.ContainsKey((player, side)) ? m_cachedGrabbers[(player, side)] : null;
 		}
 
-		public NetworkGrabber GrabberForId(NetworkBehaviourId id)
+		private NetworkGrabber GrabberForId(NetworkBehaviourId id)
 		{
-			if (Runner.TryFindBehaviour(id, out NetworkGrabber grabber))
-			{
-				return grabber;
-			}
-
-			return null;
+			return Runner.TryFindBehaviour(id, out NetworkGrabber grabber) ? grabber : null;
 		}
 
 		public override void FixedUpdateNetwork()
@@ -248,9 +238,6 @@ namespace VR.Interactions.Network
 			}
 			else if (GetInput(out RigInput input))
 			{
-				// Host or input authority: we use the input to replay the exact moment of the grab/ungrab in resims
-				isGrabbed = false;
-
 				if (input.LeftNetworkGrabInfo.GrabbedObjectId == Id)
 				{
 					isGrabbed = true;
@@ -288,27 +275,30 @@ namespace VR.Interactions.Network
 				}
 			}
 
-			// ---- Apply following move based on grabber/grabinfo
-			if (isGrabbed)
+			if (grabber != null)
 			{
-				m_grabbable.LocalPositionOffset = grabInfo.LocalPositionOffset;
-				m_grabbable.LocalRotationOffset = grabInfo.LocalRotationOffset;
-				Follow(grabber.transform, Runner.DeltaTime, IsColliding);
-			}
-
-			// ---- Store DetailedGrabInfo changes
-			if (isGrabbed && (wasGrabbed == false || previousGrabberId != grabber.Id))
-			{
-				// New Grab
-				// We do not store data as proxies, unless if we are waiting for the input authority
-				if (Object.IsProxy == false || grabbingWhileNotYetInputAuthority)
+				// ---- Apply following move based on grabber/grabinfo
+				if (isGrabbed)
 				{
-					DetailedGrabInfo = new NetworkDetailedGrabInfo
+					m_grabbable.LocalPositionOffset = grabInfo.LocalPositionOffset;
+					m_grabbable.LocalRotationOffset = grabInfo.LocalRotationOffset;
+					Follow(grabber.transform, Runner.DeltaTime, IsColliding);
+				}
+
+				// ---- Store DetailedGrabInfo changes
+				if (isGrabbed && (wasGrabbed == false || previousGrabberId != grabber.Id))
+				{
+					// New Grab
+					// We do not store data as proxies, unless if we are waiting for the input authority
+					if (!Object.IsProxy || grabbingWhileNotYetInputAuthority)
 					{
-						GrabbingUser = grabber.Object.InputAuthority,
-						GrabInteractorId = grabber.Id,
-						NetworkGrabInfo = grabInfo
-					};
+						DetailedGrabInfo = new NetworkDetailedGrabInfo
+						{
+							GrabbingUser = grabber.Object.InputAuthority,
+							GrabInteractorId = grabber.Id,
+							NetworkGrabInfo = grabInfo
+						};
+					}
 				}
 			}
 
@@ -411,13 +401,12 @@ namespace VR.Interactions.Network
 				 * So, while the FUN position is used for local physics computation, for the final rendering of this object, we prefer to use the remote timeframe,
 				 * which will interpolate between states where the hand were properly positioned to trigger the following
 				 */
-				Localization from = default,
-					to = default;
+				Localization from = default;
+				Localization to = default;
 
 				bool fromFound = false;
 				bool toFound = false;
 				float targetTime = Runner.RemoteRenderTime;
-				int i = 0;
 
 				foreach (Localization loc in m_lastLocalizations)
 				{
@@ -433,8 +422,6 @@ namespace VR.Interactions.Network
 
 						break;
 					}
-
-					i++;
 				}
 
 				if (fromFound && toFound)
