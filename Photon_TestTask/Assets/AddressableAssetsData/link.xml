@@ -1,0 +1,247 @@
+<linker>
+  <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Core.Installers.GameSceneInstaller" preserve="all" />
+    <type fullname="Data.PlayerPrefabsData" preserve="all" />
+    <type fullname="Player.Installers.PlayerOfflineRigInstaller" preserve="all" />
+    <type fullname="Player.Installers.PlayerSpawnerInstaller" preserve="all" />
+    <type fullname="Player.Spawning.BasicSpawnStrategy" preserve="all" />
+    <type fullname="Player.Spawning.PlayerSpawner" preserve="all" />
+    <type fullname="UI.BaseButton" preserve="all" />
+    <type fullname="UI.DebugUI.DebugUISetup" preserve="all" />
+    <type fullname="UI.Installers.SessionInfosUIContainerInstaller" preserve="all" />
+    <type fullname="UI.Lobby.SessionInfosUIContainer" preserve="all" />
+    <type fullname="UI.Lobby.SessionInfoView" preserve="all" />
+    <type fullname="UI.LobbyMenuUI" preserve="all" />
+    <type fullname="UI.Pages.MainMenu.MainMenuLobbyPage" preserve="all" />
+    <type fullname="UI.Pages.UIPageBase" preserve="all" />
+    <type fullname="VR.Animation.HandAnimationController" preserve="all" />
+    <type fullname="VR.Animation.HandAnimationSettings" preserve="all" />
+    <type fullname="VR.Filters.IsSimulationTickXRSelectFilter" preserve="all" />
+    <type fullname="VR.Haptic.XRUIHapticFeedback" preserve="all" />
+    <type fullname="VR.Interactions.Interactors.CustomPhysicsGrabbable" preserve="all" />
+    <type fullname="VR.Interactions.Network.NetworkGrabber" preserve="all" />
+    <type fullname="VR.Interactions.Network.NetworkPhysicsGrabbable" preserve="all" />
+    <type fullname="VR.Interactions.NetworkGrabInfoProvider" preserve="all" />
+    <type fullname="VR.Movement.SnapTurnProvider" preserve="all" />
+    <type fullname="VR.Network.NetworkHand" preserve="all" />
+    <type fullname="VR.Network.NetworkRig" preserve="all" />
+    <type fullname="VR.Network.NetworkRigViewSynchronizer" preserve="all" />
+    <type fullname="VR.Offline.OfflineHand" preserve="all" />
+    <type fullname="VR.Offline.OfflineRig" preserve="all" />
+    <type fullname="VR.Offline.RigInputTracker" preserve="all" />
+    <type fullname="VR.Views.HandView" preserve="all" />
+    <type fullname="VR.Views.RigElementViewSettings" preserve="all" />
+    <type fullname="VR.Views.RigElementVisibilityHandler" preserve="all" />
+    <type fullname="VR.Views.RigVisibilityHandler" preserve="all" />
+    <type fullname="Utils.PIDSettings" preserve="nothing" serialized="true" />
+    <type fullname="Utils.PIDState" preserve="nothing" serialized="true" />
+    <type fullname="VR.Interactions.Network.NetworkGrabInfo" preserve="nothing" serialized="true" />
+    <type fullname="VR.Interactions.Network.NetworkPhysicsGrabbable/PseudoHapticFeedbackConfiguration" preserve="nothing" serialized="true" />
+    <type fullname="VR.Views.RigVisibilityHandler/VisibilityData" preserve="nothing" serialized="true" />
+    <type fullname="VR.Haptic.HapticSettings" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Fusion.Addons.Physics, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Fusion.Addons.Physics.NetworkRigidbody3D" preserve="all" />
+    <type fullname="Fusion.Addons.Physics.TRSThresholds" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Fusion.Runtime, Version=2.0.3.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Fusion.NetworkObject" preserve="all" />
+    <type fullname="Fusion.NetworkObjectPrefabData" preserve="all" />
+    <type fullname="Fusion.NetworkTransform" preserve="all" />
+    <type fullname="Fusion.NetworkBehaviourId" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkId" preserve="nothing" serialized="true" />
+    <type fullname="Fusion.NetworkObjectGuid" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Fusion.Unity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Fusion.EnableOnSingleRunner" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.InputSystem, Version=1.11.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.InputActionReference" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.XR.TrackedPoseDriver" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.InputAction" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputActionMap" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputActionProperty" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputBinding" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalLightData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.TemporalAA/Settings" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.LegacyResourcesProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
+    <type fullname="TMPro.TMP_FontAsset" preserve="all" />
+    <type fullname="TMPro.FaceInfo_Legacy" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_GlyphAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_GlyphPairAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_GlyphValueRecord" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.XR.CoreUtils, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Unity.XR.CoreUtils.XROrigin" preserve="all" />
+    <type fullname="Unity.XR.CoreUtils.ColorUnityEvent" preserve="nothing" serialized="true" />
+    <type fullname="Unity.XR.CoreUtils.Datums.AnimationCurveDatumProperty" preserve="nothing" serialized="true" />
+    <type fullname="Unity.XR.CoreUtils.FloatUnityEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.XR.Interaction.Toolkit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Rendering.ColorMaterialPropertyAffordanceReceiver" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Rendering.FloatMaterialPropertyAffordanceReceiver" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Rendering.MaterialPropertyBlockHelper" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.State.XRInteractableAffordanceStateProvider" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.Primitives.ColorAffordanceThemeDatum" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.Primitives.FloatAffordanceThemeDatum" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Attachment.InteractionAttachController" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Feedback.SimpleHapticFeedback" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.HapticImpulsePlayer" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.InputActionManager" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.XRInputModalityManager" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.Casters.CurveInteractionCaster" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.Casters.SphereInteractionCaster" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.NearFarInteractor" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.Visuals.CurveVisualController" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Climbing.ClimbProvider" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Climbing.ClimbTeleportInteractor" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.LocomotionMediator" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement.GrabMoveProvider" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement.TwoHandedGrabMoveProvider" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.GazeTeleportationAnchorFilter" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportationProvider" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.XRBodyTransformer" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Transformers.XRGeneralGrabTransformer" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.UI.TrackedDeviceGraphicRaycaster" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.UI.XRUIInputModule" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.XRInteractionManager" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.ActivateEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.AffordanceThemeData`1[System.Single]" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.AffordanceThemeData`1[UnityEngine.Color]" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.Primitives.ColorAffordanceTheme" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.Primitives.ColorAffordanceThemeDatumProperty" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.Primitives.FloatAffordanceTheme" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Theme.Primitives.FloatAffordanceThemeDatumProperty" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.DeactivateEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Feedback.HapticImpulseData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.FocusEnterEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.FocusExitEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.HoverEnterEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.HoverExitEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.XRInputHapticImpulseProvider" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.Readers.XRInputButtonReader" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Inputs.Readers.XRInputValueReader`1[UnityEngine.Vector2]" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.InteractionLayerMask" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Interactors.Visuals.LineProperties" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Climbing.ClimbSettings" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Climbing.ClimbSettingsDatumProperty" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportVolumeDestinationSettings" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportVolumeDestinationSettingsDatumProperty" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.SelectEnterEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.SelectExitEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.UI.UIHoverEnterEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.UI.UIHoverExitEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.XR.Interaction.Toolkit.Samples.StarterAssets, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.ClimbTeleportDestinationIndicator" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.ControllerInputActionManager" preserve="all" />
+    <type fullname="UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.DynamicMoveProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AnimationClip" preserve="all" />
+    <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.Avatar" preserve="all" />
+    <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioListener" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Camera" preserve="all" />
+    <type fullname="UnityEngine.Cubemap" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Halo" preserve="all" />
+    <type fullname="UnityEngine.Light" preserve="all" />
+    <type fullname="UnityEngine.LightingSettings" preserve="all" />
+    <type fullname="UnityEngine.LightmapSettings" preserve="all" />
+    <type fullname="UnityEngine.LightProbes" preserve="all" />
+    <type fullname="UnityEngine.LineRenderer" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.Mesh" preserve="all" />
+    <type fullname="UnityEngine.MeshFilter" preserve="all" />
+    <type fullname="UnityEngine.MeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.ReflectionProbe" preserve="all" />
+    <type fullname="UnityEngine.Rendering.SortingGroup" preserve="all" />
+    <type fullname="UnityEngine.RenderSettings" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.SkinnedMeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.Sprite" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.UnityEvent`1[UnityEngine.XR.Interaction.Toolkit.Interactors.IXRRayProvider]" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.UnityEvent`1[VR.Interactions.Network.NetworkGrabber]" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.BoxCollider" preserve="all" />
+    <type fullname="UnityEngine.CharacterController" preserve="all" />
+    <type fullname="UnityEngine.MeshCollider" preserve="all" />
+    <type fullname="UnityEngine.Rigidbody" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Font" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.EventSystems.EventSystem" preserve="all" />
+    <type fullname="UnityEngine.UI.Button" preserve="all" />
+    <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
+    <type fullname="UnityEngine.UI.ContentSizeFitter" preserve="all" />
+    <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
+    <type fullname="UnityEngine.UI.HorizontalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.Image" preserve="all" />
+    <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
+    <type fullname="UnityEngine.UI.Mask" preserve="all" />
+    <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
+    <type fullname="UnityEngine.UI.Selectable" preserve="all" />
+    <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="Zenject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Zenject.GameObjectContext" preserve="all" />
+    <type fullname="Zenject.SceneContext" preserve="all" />
+    <type fullname="Zenject.ZenAutoInjecter" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextCoreFontEngineModule">
+    <type fullname="UnityEngine.TextCore.FaceInfo" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.Glyph" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.GlyphMetrics" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.GlyphRect" preserve="nothing" serialized="true" />
+  </assembly>
+</linker>
