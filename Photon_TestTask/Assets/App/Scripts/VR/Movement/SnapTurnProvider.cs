@@ -56,8 +56,6 @@ namespace VR.Movement
 
 		private void TurnButtonPressed(InputAction.CallbackContext callbackContext)
 		{
-			Debug.Log("PRESSED");
-			
 			Rotate(callbackContext.ReadValue<float>() > 0 ? m_turnAmount : -m_turnAmount);
 		}
 
