@@ -37,7 +37,7 @@ namespace UI.Lobby
 			foreach (SessionInfo sessionInfo in sessionInfos)
 			{
 				SessionInfoView sessionInfoView = m_sessionInfoViewFactory.Create();
-				sessionInfoView.transform.parent = m_sessionInfoViewsRoot;
+				sessionInfoView.transform.SetParent(m_sessionInfoViewsRoot, false);
 				sessionInfoView.Setup(sessionInfo);
 				m_currentSessionViews.Add(sessionInfoView);
 			}
