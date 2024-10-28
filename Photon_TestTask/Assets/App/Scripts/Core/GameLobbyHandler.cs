@@ -59,7 +59,7 @@ namespace Core
 		{
 			return m_currentSessions;
 		}
-
+		
 		public async void Initialize()
 		{
 			Debug.Log($"Initializing {nameof(GameLobbyHandler)}");

@@ -18,6 +18,11 @@ namespace Core.Interfaces
 		#region Properties
 
 		LobbyData CurrentLobby { get; }
+
+		#endregion
+
+		#region PublicMethods
+
 		List<SessionInfo> GetCurrentSessions();
 
 		#endregion

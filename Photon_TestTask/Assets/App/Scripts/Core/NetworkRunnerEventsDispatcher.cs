@@ -36,6 +36,7 @@ namespace Core
 		#region PrivateFields
 
 		private INetworkRunnerProvider m_networkRunnerProvider;
+		private NetworkRunner m_currentRunner;
 
 		#endregion
 
@@ -56,10 +57,12 @@ namespace Core
 
 			if (m_networkRunnerProvider.Runner != null)
 			{
-				m_networkRunnerProvider.Runner.RemoveCallbacks(this);
+				RegisterToRunner(m_networkRunnerProvider.Runner);
 			}
 
 			Debug.Log($"{nameof(NetworkRunnerEventsDispatcher)} disposed");
+
+			UnregisterFromEvents();
 		}
 
 		public void Initialize()
@@ -68,10 +71,12 @@ namespace Core
 
 			if (m_networkRunnerProvider.Runner != null)
 			{
-				m_networkRunnerProvider.Runner.AddCallbacks(this);
+				UnregisterFromRunner(m_networkRunnerProvider.Runner);
 			}
 
 			Debug.Log($"{nameof(NetworkRunnerEventsDispatcher)} initialized");
+
+			RegisterToEvents();
 		}
 
 		public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
@@ -167,6 +172,41 @@ namespace Core
 		public void OnSceneLoadStart(NetworkRunner runner)
 		{
 			SceneLoadStart?.Invoke();
+		}
+
+		#endregion
+
+		#region PrivateMethods
+
+		private void RegisterToEvents()
+		{
+			m_networkRunnerProvider.RunnerInitialized += RegisterToRunner;
+			m_networkRunnerProvider.RunnerWillBeDestroyed += UnregisterFromRunner;
+		}
+
+		private void UnregisterFromEvents()
+		{
+			m_networkRunnerProvider.RunnerWillBeDestroyed -= UnregisterFromRunner;
+			m_networkRunnerProvider.RunnerInitialized -= RegisterToRunner;
+		}
+
+		private void RegisterToRunner(NetworkRunner runner)
+		{
+			if (m_currentRunner == runner)
+			{
+				Debug.LogWarning("Already registered to current runner");
+
+				return;
+			}
+
+			m_currentRunner = runner;
+			runner.AddCallbacks(this);
+		}
+
+		private void UnregisterFromRunner(NetworkRunner runner)
+		{
+			runner.RemoveCallbacks(this);
+			m_currentRunner = null;
 		}
 
 		#endregion

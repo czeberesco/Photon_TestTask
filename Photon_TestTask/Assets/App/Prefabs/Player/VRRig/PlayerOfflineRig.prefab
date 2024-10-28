@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 3565252945571922905}
   - component: {fileID: 6252635766230767481}
   - component: {fileID: 9121002096828505946}
+  - component: {fileID: 6087553273202669696}
   m_Layer: 6
   m_Name: PlayerOfflineRig
   m_TagString: Untagged
@@ -255,6 +256,24 @@ MonoBehaviour:
   m_headVisibilityHandler: {fileID: 7509780769430989678}
   m_leftHandVisibilityHandler: {fileID: 712326859760696958}
   m_rightHandVisibilityHandler: {fileID: 7196926377876917854}
+--- !u!114 &6087553273202669696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628048939552739261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e29627252a4ae409ca4b3cdec829b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_leaveSessionButton: {fileID: -4252139653439586376, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_mainMenuSceneAssetReference:
+    m_AssetGUID: d78f300e380acba4283c14c9015cc91d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &3340326335114218468
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
-﻿using Player;
-using Player.Interfaces;
+﻿using Player.Interfaces;
 using VR.Offline;
 using Zenject;
 

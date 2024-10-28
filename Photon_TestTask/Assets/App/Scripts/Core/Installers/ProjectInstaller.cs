@@ -30,7 +30,6 @@ namespace Core.Installers
 			Container.Bind<INetworkSceneManager>().FromInstance(m_networkSceneManager).AsSingle();
 			Container.Bind<PlayerPrefabsData>().FromInstance(m_playerPrefabsData).AsSingle();
 			Container.BindInterfacesAndSelfTo<ConnectionHandler>().AsSingle().NonLazy();
-			Container.BindInterfacesAndSelfTo<GameLobbyHandler>().AsSingle().NonLazy();
 			Container.Bind<GameLevelDataCollection>().FromInstance(m_gameLevelDataCollection).AsSingle();
 		}
 

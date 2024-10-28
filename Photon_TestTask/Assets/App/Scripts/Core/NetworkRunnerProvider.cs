@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Threading.Tasks;
 using Core.Interfaces;
 using Fusion;
 using UnityEngine;
@@ -16,32 +18,34 @@ namespace Core
 
 		#region Properties
 
-		public NetworkRunner Runner
-		{
-			get
-			{
-				if (m_runner == null)
-				{
-					CreateRunner();
-				}
-
-				return m_runner;
-			}
-		}
+		public NetworkRunner Runner => m_runner;
 
 		#endregion
 
-		#region PrivateFields
+		#region SerializeFields
 
-		private NetworkRunner m_runner;
+		[SerializeField] private NetworkRunner m_runner;
 
 		#endregion
 
 		#region UnityMethods
 
-		public void OnDestroy()
+		private void OnDestroy()
 		{
 			DestroyRunner();
+		}
+
+		#endregion
+
+		#region InterfaceImplementations
+
+		public IEnumerator Reinitialize()
+		{
+			Task task = DestroyRunner();
+
+			yield return new WaitUntil(() => task.IsCompleted);
+
+			CreateRunner();
 		}
 
 		#endregion
@@ -59,11 +63,17 @@ namespace Core
 			RunnerInitialized?.Invoke(m_runner);
 		}
 
-		private void DestroyRunner()
+		private async Task DestroyRunner()
 		{
+			if (m_runner == null)
+			{
+				return;
+			}
+
 			Debug.Log($" Destroying {nameof(NetworkRunner)}");
 
 			RunnerWillBeDestroyed?.Invoke(m_runner);
+			await m_runner.Shutdown(false);
 			Destroy(m_runner);
 
 			Debug.Log($"{nameof(NetworkRunner)} destroyed");

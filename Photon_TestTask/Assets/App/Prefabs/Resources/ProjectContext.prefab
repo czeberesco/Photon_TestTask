@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3634576159664199413}
   - component: {fileID: 6146176668285021088}
   - component: {fileID: 9012177192080463100}
+  - component: {fileID: 5141091353334504997}
   m_Layer: 0
   m_Name: NetworkRunnerProvider
   m_TagString: Untagged
@@ -132,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a10a0b8824a7ea70c10ef1d507bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_runner: {fileID: 5141091353334504997}
 --- !u!114 &9012177192080463100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +151,18 @@ MonoBehaviour:
   ForwardOnly: 0
   DeltaTimeMultiplier: 1
   SetUnityFixedTimestep: 0
+--- !u!114 &5141091353334504997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635775928461328371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1199893898, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6177516592499092058
 GameObject:
   m_ObjectHideFlags: 0

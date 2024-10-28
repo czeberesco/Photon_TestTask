@@ -3535,6 +3535,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Debug Leave Session",
+                    "type": "Button",
+                    "id": "c956f9ad-fcb2-4e00-8ccc-f4ef5e6e0c06",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -3546,6 +3555,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Debug Toggle Canvas Render Mode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "100bee11-aa10-4fd6-9a79-ad7a176042e8",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Debug Leave Session",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
