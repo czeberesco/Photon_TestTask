@@ -7,9 +7,9 @@ using UI.Lobby;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Pages.MainMenu
+namespace UI.Pages.LobbyMenu
 {
-	public class MainMenuLobbyPage : UIPageBase
+	public class LobbyMenuLobbyPage : UIPageBase
 	{
 		#region SerializeFields
 

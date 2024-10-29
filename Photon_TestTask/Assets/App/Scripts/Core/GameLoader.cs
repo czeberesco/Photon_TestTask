@@ -1,8 +1,9 @@
 using System.Threading.Tasks;
-using UnityEngine.AddressableAssets;
+using Data;
 using Zenject;
 #if !UNITY_EDITOR
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 #endif
@@ -13,15 +14,15 @@ namespace Core
 	{
 		#region PrivateFields
 
-		private readonly AssetReference m_mainMenuSceneReference;
+		private readonly GameLevelDataCollection m_gameLevelDataCollection;
 
 		#endregion
 
 		#region Constructors
 
-		public GameLoader(AssetReference mainMenuSceneReference)
+		public GameLoader(GameLevelDataCollection gameLevelDataCollection)
 		{
-			m_mainMenuSceneReference = mainMenuSceneReference;
+			m_gameLevelDataCollection = gameLevelDataCollection;
 		}
 
 		#endregion
@@ -32,13 +33,13 @@ namespace Core
 		{
 			// Force load from main menu scene only in builds
 #if !UNITY_EDITOR
-			Debug.Log("Loading main menu scene");
+			Debug.Log($"Loading {nameof(m_gameLevelDataCollection.LobbyLevel)}");
 
-			AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(m_mainMenuSceneReference);
+			AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(m_gameLevelDataCollection.LobbyLevel);
 
 			await handle.Task;
 
-			Debug.Log("Main menu scene loaded");
+			Debug.Log($"{nameof(m_gameLevelDataCollection.LobbyLevel)} loaded");
 #else
 			await Task.Delay(0);
 #endif

@@ -5,7 +5,7 @@ using UI.Buttons;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Pages.MainMenu
+namespace UI.Pages.LobbyMenu
 {
 	public class MainMenuConnectionProblemPageBase : UIPageBase
 	{

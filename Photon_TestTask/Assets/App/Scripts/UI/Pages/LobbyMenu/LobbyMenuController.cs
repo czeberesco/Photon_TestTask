@@ -2,17 +2,16 @@
 using Core.Interfaces;
 using Data;
 using Fusion;
-using UI.Pages;
 using UnityEngine;
 using Zenject;
 
-namespace UI
+namespace UI.Pages.LobbyMenu
 {
-	public class LobbyMenuUI : MonoBehaviour
+	public class LobbyMenuController : UIMenuBaseController
 	{
 		#region Properties
 
-		private List<UIPageBase> Pages =>
+		protected override List<UIPageBase> Pages =>
 			m_pages ??= new List<UIPageBase>
 			{
 				m_joiningLobbyPage,
@@ -44,29 +43,13 @@ namespace UI
 
 		#endregion
 
-		#region UnityMethods
-
-		private void Awake()
-		{
-			RegisterToEvents();
-
-			ShowPage(m_gameLobbyHandler.CurrentLobby.IsValid() ? m_lobbyPage : m_joiningLobbyPage);
-		}
-
-		private void OnDestroy()
-		{
-			UnregisterFromEvents();
-		}
-
-		#endregion
-
 		#region PrivateMethods
 
 		private void OnJoiningLobbyStarted()
 		{
 			ShowPage(m_joiningLobbyPage);
 		}
-		
+
 		private void OnJoinLobbySuccess(StartGameResult startGameResult, LobbyData lobbyData)
 		{
 			ShowPage(m_lobbyPage);
@@ -126,18 +109,20 @@ namespace UI
 			}
 		}
 
-		private void ShowPage(UIPageBase page)
+		#endregion
+
+		#region UnityMethods
+
+		private void Awake()
 		{
-			HidePages();
-			page.Show();
+			RegisterToEvents();
+
+			ShowPage(m_gameLobbyHandler.CurrentLobby.IsValid() ? m_lobbyPage : m_joiningLobbyPage);
 		}
 
-		private void HidePages()
+		private void OnDestroy()
 		{
-			foreach (UIPageBase page in Pages)
-			{
-				page.Hide();
-			}
+			UnregisterFromEvents();
 		}
 
 		#endregion

@@ -1,20 +1,20 @@
-using System.Collections;
+﻿using System.Collections;
 using Core.Interfaces;
 using Data;
+using UI.Buttons;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.InputSystem;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using Zenject;
 
-namespace Player.DebugPlayer
+namespace UI.Pages.HandMenu
 {
-	public class DebugPlayer : MonoBehaviour
+	public class HandMenuMainPage : UIPageBase
 	{
-		#region Events
+		#region SerializeFields
 
-		[SerializeField] private InputActionReference m_leaveSessionButton;
+		[SerializeField] private BaseButton m_quitSessionButton;
 
 		#endregion
 
@@ -23,49 +23,36 @@ namespace Player.DebugPlayer
 		[Inject] private INetworkRunnerProvider m_networkRunnerProvider;
 		[Inject] private GameLevelDataCollection m_gameLevelDataCollection;
 
-		private bool m_isOccupied;
-
 		#endregion
 
-		#region UnityMethods
+		#region ProtectedMethods
 
-		private void Awake()
+		protected override void RegisterToEvents()
 		{
-			RegisterToEvents();
+			base.RegisterToEvents();
+
+			m_quitSessionButton.Clicked += QuitSession;
 		}
 
-		private void OnDestroy()
+		protected override void UnregisterFromEvents()
 		{
-			UnregisterFromEvents();
+			base.UnregisterFromEvents();
+
+			m_quitSessionButton.Clicked -= QuitSession;
 		}
 
 		#endregion
 
 		#region PrivateMethods
 
-		private void RegisterToEvents()
+		private void QuitSession()
 		{
-			m_leaveSessionButton.action.performed += OnLeaveSessionButtonPressed;
-		}
-
-		private void UnregisterFromEvents()
-		{
-			m_leaveSessionButton.action.performed -= OnLeaveSessionButtonPressed;
-		}
-
-		private void OnLeaveSessionButtonPressed(InputAction.CallbackContext callbackContext)
-		{
-			if (m_isOccupied)
-			{
-				return;
-			}
-
 			StartCoroutine(QuitSessionCoroutine());
 		}
 
 		private IEnumerator QuitSessionCoroutine()
 		{
-			m_isOccupied = true;
+			m_quitSessionButton.SetInteractable(false);
 
 			yield return m_networkRunnerProvider.Reinitialize();
 
@@ -73,7 +60,7 @@ namespace Player.DebugPlayer
 
 			yield return new WaitUntil(() => handle.IsDone);
 
-			m_isOccupied = false;
+			m_quitSessionButton.SetInteractable(true);
 		}
 
 		#endregion

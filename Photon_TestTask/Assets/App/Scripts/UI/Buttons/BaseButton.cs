@@ -32,6 +32,15 @@ namespace UI.Buttons
 
 		#endregion
 
+		#region PublicMethods
+
+		public void SetInteractable(bool state)
+		{
+			m_button.interactable = state;
+		}
+
+		#endregion
+
 		#region ProtectedMethods
 
 		protected virtual void RegisterToEvents()
