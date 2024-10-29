@@ -28,7 +28,6 @@ namespace Core.Installers
 			Container.BindInterfacesAndSelfTo<ConnectionHandler>().AsSingle().NonLazy();
 			
 			Container.Bind<GameLevelDataCollection>().FromInstance(m_gameLevelDataCollection).AsSingle();
-			Container.BindInterfacesAndSelfTo<GameLoader>().AsSingle().NonLazy();
 		}
 
 		#endregion

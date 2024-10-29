@@ -1,12 +1,9 @@
-using System.Threading.Tasks;
 using Data;
-using Zenject;
-#if !UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
-#endif
+using Zenject;
 
 namespace Core
 {
@@ -31,8 +28,6 @@ namespace Core
 
 		public async void Initialize()
 		{
-			// Force load from main menu scene only in builds
-#if !UNITY_EDITOR
 			Debug.Log($"Loading {nameof(m_gameLevelDataCollection.LobbyLevel)}");
 
 			AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(m_gameLevelDataCollection.LobbyLevel);
@@ -40,9 +35,6 @@ namespace Core
 			await handle.Task;
 
 			Debug.Log($"{nameof(m_gameLevelDataCollection.LobbyLevel)} loaded");
-#else
-			await Task.Delay(0);
-#endif
 		}
 
 		#endregion
