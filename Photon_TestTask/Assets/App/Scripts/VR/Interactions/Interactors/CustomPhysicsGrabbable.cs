@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Utils;
-using VelocityExtension = Fusion.XR.Shared.VelocityExtension;
 
 namespace VR.Interactions.Interactors
 {
@@ -132,7 +131,7 @@ namespace VR.Interactions.Interactors
 			Vector3 command = PID.UpdateCommand(error, elapsedTime, ignoreIntegration);
 			Vector3 impulse = Vector3.ClampMagnitude(m_commandScale * command, m_maxCommandMagnitude);
 			Rigidbody.AddForce(impulse, ForceMode.Impulse);
-			Rigidbody.angularVelocity = VelocityExtension.AngularVelocityChange(Rigidbody.transform.rotation, targetRotation, elapsedTime);
+			Rigidbody.angularVelocity = Rigidbody.transform.rotation.AngularVelocityChange(targetRotation, elapsedTime);
 		}
 
 		protected virtual void VelocityFollow(Transform followedTransform, float elapsedTime)
