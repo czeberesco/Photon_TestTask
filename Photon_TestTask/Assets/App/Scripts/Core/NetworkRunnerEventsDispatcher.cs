@@ -53,12 +53,20 @@ namespace Core
 
 		public void Dispose()
 		{
+			Debug.Log($"Disposing {nameof(NetworkRunnerEventsDispatcher)}");
+			
 			UnregisterFromEvents();
+			
+			Debug.Log($"{nameof(NetworkRunnerEventsDispatcher)} disposed");
 		}
 
 		public void Initialize()
 		{
+			Debug.Log($"Initializing {nameof(NetworkRunnerEventsDispatcher)}");
+			
 			RegisterToEvents();
+			
+			Debug.Log($"{nameof(NetworkRunnerEventsDispatcher)} initialized");
 		}
 
 		public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
@@ -183,11 +191,16 @@ namespace Core
 
 			m_currentRunner = runner;
 			runner.AddCallbacks(this);
+			
+			Debug.Log($"{nameof(NetworkRunnerEventsDispatcher)} registered to {nameof(NetworkRunner)} {runner.name} callbacks");
 		}
 
 		private void UnregisterFromRunner(NetworkRunner runner)
 		{
 			runner.RemoveCallbacks(this);
+			
+			Debug.Log($"{nameof(NetworkRunnerEventsDispatcher)} unregistered from {nameof(NetworkRunner)} {runner.name} callbacks");
+			
 			m_currentRunner = null;
 		}
 

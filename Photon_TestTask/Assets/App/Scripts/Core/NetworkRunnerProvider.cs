@@ -28,7 +28,7 @@ namespace Core
 
 		#region UnityMethods
 
-		private void Awake()
+		private void Start()
 		{
 			CreateRunner();
 		}
