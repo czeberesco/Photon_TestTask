@@ -3,6 +3,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using Core.Interfaces;
 using Fusion;
+using Fusion.Addons.Physics;
 using UnityEngine;
 
 namespace Core
@@ -59,7 +60,10 @@ namespace Core
 		{
 			Debug.Log($"Initializing {nameof(NetworkRunner)}");
 
-			Runner = gameObject.AddComponent<NetworkRunner>();
+			GameObject newRunnerGameObject = new GameObject($"{nameof(NetworkRunner)}_(DynamicallySpawned)");
+			newRunnerGameObject.transform.SetParent(transform);
+			Runner = newRunnerGameObject.AddComponent<NetworkRunner>();
+			newRunnerGameObject.AddComponent<RunnerSimulatePhysics3D>();
 
 			Debug.Log($"{nameof(NetworkRunner)} initialized");
 
@@ -76,7 +80,7 @@ namespace Core
 			Debug.Log($" Destroying {nameof(NetworkRunner)}");
 
 			RunnerWillBeDestroyed?.Invoke(Runner);
-			await Runner.Shutdown(false);
+			await Runner.Shutdown();
 			Destroy(Runner);
 
 			Debug.Log($"{nameof(NetworkRunner)} destroyed");
