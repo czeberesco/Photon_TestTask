@@ -53,29 +53,11 @@ namespace Core
 
 		public void Dispose()
 		{
-			Debug.Log($"Disposing {nameof(NetworkRunnerEventsDispatcher)}");
-
-			if (m_networkRunnerProvider.Runner != null)
-			{
-				RegisterToRunner(m_networkRunnerProvider.Runner);
-			}
-
-			Debug.Log($"{nameof(NetworkRunnerEventsDispatcher)} disposed");
-
 			UnregisterFromEvents();
 		}
 
 		public void Initialize()
 		{
-			Debug.Log($"Initializing {nameof(NetworkRunnerEventsDispatcher)}");
-
-			if (m_networkRunnerProvider.Runner != null)
-			{
-				UnregisterFromRunner(m_networkRunnerProvider.Runner);
-			}
-
-			Debug.Log($"{nameof(NetworkRunnerEventsDispatcher)} initialized");
-
 			RegisterToEvents();
 		}
 

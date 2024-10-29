@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Data;
 using Fusion;
 
@@ -9,6 +10,7 @@ namespace Core.Interfaces
 	{
 		#region Events
 
+		event Action JoiningLobbyStarted;
 		event Action<StartGameResult, LobbyData> JoinLobbySuccess;
 		event Action<StartGameResult> JoinLobbyFailed;
 		event Action<List<SessionInfo>> SessionListUpdated;
@@ -24,6 +26,7 @@ namespace Core.Interfaces
 		#region PublicMethods
 
 		List<SessionInfo> GetCurrentSessions();
+		Task JoinLobby();
 
 		#endregion
 	}

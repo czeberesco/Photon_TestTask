@@ -62,6 +62,11 @@ namespace UI
 
 		#region PrivateMethods
 
+		private void OnJoiningLobbyStarted()
+		{
+			ShowPage(m_joiningLobbyPage);
+		}
+		
 		private void OnJoinLobbySuccess(StartGameResult startGameResult, LobbyData lobbyData)
 		{
 			ShowPage(m_lobbyPage);
@@ -94,6 +99,7 @@ namespace UI
 
 		private void RegisterToEvents()
 		{
+			m_gameLobbyHandler.JoiningLobbyStarted += OnJoiningLobbyStarted;
 			m_gameLobbyHandler.JoinLobbySuccess += OnJoinLobbySuccess;
 			m_gameLobbyHandler.JoinLobbyFailed += OnJoinLobbyFailed;
 			m_connectionHandler.HostingSessionStarted += OnHostingSessionStarted;
@@ -116,6 +122,7 @@ namespace UI
 			{
 				m_gameLobbyHandler.JoinLobbyFailed -= OnJoinLobbyFailed;
 				m_gameLobbyHandler.JoinLobbySuccess -= OnJoinLobbySuccess;
+				m_gameLobbyHandler.JoiningLobbyStarted -= OnJoiningLobbyStarted;
 			}
 		}
 

@@ -23,7 +23,6 @@ namespace Player.DebugPlayer
 		#region PrivateFields
 
 		[Inject] private INetworkRunnerProvider m_networkRunnerProvider;
-		[Inject] private GameLoader m_gameLoader;
 
 		private bool m_isOccupied;
 

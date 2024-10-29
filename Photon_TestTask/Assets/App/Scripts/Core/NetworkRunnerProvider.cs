@@ -18,17 +18,20 @@ namespace Core
 
 		#region Properties
 
-		public NetworkRunner Runner => m_runner;
+		public NetworkRunner Runner { get; private set; }
 
 		#endregion
 
 		#region SerializeFields
 
-		[SerializeField] private NetworkRunner m_runner;
-
 		#endregion
 
 		#region UnityMethods
+
+		private void Awake()
+		{
+			CreateRunner();
+		}
 
 		private void OnDestroy()
 		{
@@ -56,25 +59,25 @@ namespace Core
 		{
 			Debug.Log($"Initializing {nameof(NetworkRunner)}");
 
-			m_runner = gameObject.AddComponent<NetworkRunner>();
+			Runner = gameObject.AddComponent<NetworkRunner>();
 
 			Debug.Log($"{nameof(NetworkRunner)} initialized");
 
-			RunnerInitialized?.Invoke(m_runner);
+			RunnerInitialized?.Invoke(Runner);
 		}
 
 		private async Task DestroyRunner()
 		{
-			if (m_runner == null)
+			if (Runner == null)
 			{
 				return;
 			}
 
 			Debug.Log($" Destroying {nameof(NetworkRunner)}");
 
-			RunnerWillBeDestroyed?.Invoke(m_runner);
-			await m_runner.Shutdown(false);
-			Destroy(m_runner);
+			RunnerWillBeDestroyed?.Invoke(Runner);
+			await Runner.Shutdown(false);
+			Destroy(Runner);
 
 			Debug.Log($"{nameof(NetworkRunner)} destroyed");
 		}

@@ -14,6 +14,7 @@ namespace Core
 	{
 		#region Events
 
+		public event Action JoiningLobbyStarted;
 		public event Action<StartGameResult, LobbyData> JoinLobbySuccess;
 		public event Action<StartGameResult> JoinLobbyFailed;
 		public event Action<List<SessionInfo>> SessionListUpdated;
@@ -59,7 +60,7 @@ namespace Core
 		{
 			return m_currentSessions;
 		}
-		
+
 		public async void Initialize()
 		{
 			Debug.Log($"Initializing {nameof(GameLobbyHandler)}");
@@ -68,6 +69,11 @@ namespace Core
 
 			Debug.Log($"{nameof(GameLobbyHandler)} initialized");
 
+			await JoinLobby();
+		}
+
+		public async Task JoinLobby()
+		{
 			await JoinLobby(m_networkRunnerProvider.Runner, R.GAME_LOBBY_NAME);
 		}
 
@@ -79,6 +85,8 @@ namespace Core
 		{
 			Debug.Log($"Joining lobby {lobbyName} ...");
 
+			JoiningLobbyStarted?.Invoke();
+			
 			StartGameResult result = await runner.JoinSessionLobby(SessionLobby.ClientServer, lobbyName);
 
 			if (result.Ok)
