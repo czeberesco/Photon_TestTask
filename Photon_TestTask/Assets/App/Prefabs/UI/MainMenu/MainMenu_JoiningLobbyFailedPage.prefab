@@ -314,4 +314,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6ba6fbd9be468196e6d19d2e418f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_tryAgainButton: {fileID: 7381624321018545553}
+  m_restartLobbyButton: {fileID: 7381624321018545553}
